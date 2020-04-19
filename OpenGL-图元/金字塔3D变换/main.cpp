@@ -21,7 +21,7 @@
 // 用来画金字塔
 GLBatch triangleBatch;
 GLShaderManager shaderManager;
-//GLGeometryTransform transformPipeLine;
+GLGeometryTransform transformPipeLine;
 /*
  void glPerspective(GLdouble fov, GLdouble aspect, GLdouble near, GLdouble far)
  fov是依据y方向的视角，aspect是近裁剪面的纵横比，当然远裁剪面也取这个值，near和far的意义和上面的一样。
@@ -47,8 +47,7 @@ void changeSize(int w, int h) {
     
     projectionMatrix.LoadMatrix(viewFrustum.GetProjectionMatrix());
     
-//    transformPipeLine.SetMatrixStacks(modelViewMatrix, projectionMatrix);
-    
+    transformPipeLine.SetMatrixStacks(modelViewMatrix, projectionMatrix);
 }
 
 void render() {
@@ -58,28 +57,21 @@ void render() {
     
     GLfloat color[] = {1.0, 0, 0, 0};
     
-//    shaderManager.UseStockShader(GLT_SHADER_IDENTITY, color);
+    
+//    modelViewMatrix.PushMatrix(projectionMatrix.GetMatrix());
+
+    modelViewMatrix.PushMatrix(objectFrame);
+    
 //    modelViewMatrix.MultMatrix(objectFrame);
     
-    modelViewMatrix.PushMatrix(projectionMatrix.GetMatrix());
     
-    modelViewMatrix.MultMatrix(objectFrame);
-    
-//    modelViewMatrix.PushMatrix(objectFrame);
+//    M3DMatrix44f mCamera;
+//    objectFrame.GetMatrix(mCamera);
 //
-//
-//    M3DMatrix44f projectMatrix;
-//    projectionMatrix.GetMatrix(projectMatrix);
-//
-//    modelViewMatrix.MultMatrix(projectMatrix);
+//    M3DMatrix44f modelViewProjection;
+//    m3dMatrixMultiply44(modelViewProjection, viewFrustum.GetProjectionMatrix(), mCamera);
     
-    M3DMatrix44f mCamera;
-    objectFrame.GetMatrix(mCamera);
-
-    M3DMatrix44f modelViewProjection;
-    m3dMatrixMultiply44(modelViewProjection, viewFrustum.GetProjectionMatrix(), mCamera);
-    
-    shaderManager.UseStockShader(GLT_SHADER_FLAT, modelViewProjection, color);
+    shaderManager.UseStockShader(GLT_SHADER_FLAT, transformPipeLine.GetModelViewProjectionMatrix(), color);
     
     glLineWidth(2);
     glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
