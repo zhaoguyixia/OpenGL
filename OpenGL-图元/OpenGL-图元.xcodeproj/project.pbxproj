@@ -15,6 +15,10 @@
 		C41B8B832448070600CD8116 /* libGLTools.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C48F530B2444174300AB0D49 /* libGLTools.a */; };
 		C41B8B8424480D4600CD8116 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C48F5322244420F700AB0D49 /* OpenGL.framework */; };
 		C41B8B8524480D4B00CD8116 /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C48F5320244420EA00AB0D49 /* GLUT.framework */; };
+		C4809BE9244E966200364ADD /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C4809BE8244E966200364ADD /* main.cpp */; };
+		C4809BED244E968400364ADD /* libGLTools.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C48F530B2444174300AB0D49 /* libGLTools.a */; };
+		C4809BEE244E969100364ADD /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C48F5320244420EA00AB0D49 /* GLUT.framework */; };
+		C4809BEF244E969600364ADD /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C48F5322244420F700AB0D49 /* OpenGL.framework */; };
 		C48F53052444170500AB0D49 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C48F53042444170500AB0D49 /* main.cpp */; };
 		C48F531C2444174300AB0D49 /* libGLTools.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C48F530B2444174300AB0D49 /* libGLTools.a */; };
 		C48F5321244420EA00AB0D49 /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C48F5320244420EA00AB0D49 /* GLUT.framework */; };
@@ -36,6 +40,15 @@
 			runOnlyForDeploymentPostprocessing = 1;
 		};
 		C41B8B7A244806DD00CD8116 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+		C4809BE4244E966200364ADD /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = /usr/share/man/man1/;
@@ -69,6 +82,9 @@
 		C41B8B702448009D00CD8116 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		C41B8B7C244806DD00CD8116 /* 金字塔3D变换 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "金字塔3D变换"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C41B8B7E244806DD00CD8116 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		C4809BE6244E966200364ADD /* 正背面剔除 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "正背面剔除"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C4809BE8244E966200364ADD /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		C4809BF0244EC4DA00364ADD /* point.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = point.h; sourceTree = "<group>"; };
 		C48F53012444170500AB0D49 /* OpenGL-图元 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "OpenGL-图元"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C48F53042444170500AB0D49 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		C48F530B2444174300AB0D49 /* libGLTools.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGLTools.a; sourceTree = "<group>"; };
@@ -113,6 +129,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C4809BE3244E966200364ADD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C4809BEE244E969100364ADD /* GLUT.framework in Frameworks */,
+				C4809BED244E968400364ADD /* libGLTools.a in Frameworks */,
+				C4809BEF244E969600364ADD /* OpenGL.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C48F52FE2444170500AB0D49 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -152,6 +178,15 @@
 			path = "金字塔3D变换";
 			sourceTree = "<group>";
 		};
+		C4809BE7244E966200364ADD /* 正背面剔除 */ = {
+			isa = PBXGroup;
+			children = (
+				C4809BE8244E966200364ADD /* main.cpp */,
+				C4809BF0244EC4DA00364ADD /* point.h */,
+			);
+			path = "正背面剔除";
+			sourceTree = "<group>";
+		};
 		C48F52F82444170500AB0D49 = {
 			isa = PBXGroup;
 			children = (
@@ -161,6 +196,7 @@
 				C41B8B6F2448009D00CD8116 /* 三角形 */,
 				C41B8B7D244806DD00CD8116 /* 金字塔3D变换 */,
 				C4AE5899244DBB750094206D /* 颜色混合 */,
+				C4809BE7244E966200364ADD /* 正背面剔除 */,
 				C48F53022444170500AB0D49 /* Products */,
 				C48F531F244420EA00AB0D49 /* Frameworks */,
 			);
@@ -173,6 +209,7 @@
 				C41B8B6E2448009D00CD8116 /* 三角形 */,
 				C41B8B7C244806DD00CD8116 /* 金字塔3D变换 */,
 				C4AE5898244DBB750094206D /* 颜色混合 */,
+				C4809BE6244E966200364ADD /* 正背面剔除 */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -268,6 +305,23 @@
 			productReference = C41B8B7C244806DD00CD8116 /* 金字塔3D变换 */;
 			productType = "com.apple.product-type.tool";
 		};
+		C4809BE5244E966200364ADD /* 正背面剔除 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C4809BEC244E966200364ADD /* Build configuration list for PBXNativeTarget "正背面剔除" */;
+			buildPhases = (
+				C4809BE2244E966200364ADD /* Sources */,
+				C4809BE3244E966200364ADD /* Frameworks */,
+				C4809BE4244E966200364ADD /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "正背面剔除";
+			productName = "正背面剔除";
+			productReference = C4809BE6244E966200364ADD /* 正背面剔除 */;
+			productType = "com.apple.product-type.tool";
+		};
 		C48F53002444170500AB0D49 /* OpenGL-图元 */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = C48F53082444170500AB0D49 /* Build configuration list for PBXNativeTarget "OpenGL-图元" */;
@@ -317,6 +371,9 @@
 					C41B8B7B244806DD00CD8116 = {
 						CreatedOnToolsVersion = 11.3.1;
 					};
+					C4809BE5244E966200364ADD = {
+						CreatedOnToolsVersion = 11.3.1;
+					};
 					C48F53002444170500AB0D49 = {
 						CreatedOnToolsVersion = 11.3.1;
 					};
@@ -342,6 +399,7 @@
 				C41B8B6D2448009D00CD8116 /* 三角形 */,
 				C41B8B7B244806DD00CD8116 /* 金字塔3D变换 */,
 				C4AE5897244DBB750094206D /* 颜色混合 */,
+				C4809BE5244E966200364ADD /* 正背面剔除 */,
 			);
 		};
 /* End PBXProject section */
@@ -360,6 +418,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				C41B8B7F244806DD00CD8116 /* main.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C4809BE2244E966200364ADD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C4809BE9244E966200364ADD /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -422,6 +488,32 @@
 			name = Debug;
 		};
 		C41B8B82244806DD00CD8116 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		C4809BEA244E966200364ADD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		C4809BEB244E966200364ADD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
@@ -614,6 +706,15 @@
 			buildConfigurations = (
 				C41B8B81244806DD00CD8116 /* Debug */,
 				C41B8B82244806DD00CD8116 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C4809BEC244E966200364ADD /* Build configuration list for PBXNativeTarget "正背面剔除" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C4809BEA244E966200364ADD /* Debug */,
+				C4809BEB244E966200364ADD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
