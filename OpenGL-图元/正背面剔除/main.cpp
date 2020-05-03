@@ -53,7 +53,7 @@ void render() {
     glEnable(GL_CULL_FACE);
     glCullFace(GL_BACK);
     
-    glEnable(GL_DEPTH_TEST);
+//    glEnable(GL_DEPTH_TEST);
     
     
     M3DMatrix44f object;

@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4EC6664D2454420A00BD0312 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4EC6664C2454420A00BD0312 /* main.cpp */; };
+		4EC666512454421600BD0312 /* libGLTools.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C48F530B2444174300AB0D49 /* libGLTools.a */; };
+		4EC666522454424000BD0312 /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C48F5320244420EA00AB0D49 /* GLUT.framework */; };
+		4EC666532454424700BD0312 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C48F5322244420F700AB0D49 /* OpenGL.framework */; };
 		C41B8B712448009D00CD8116 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C41B8B702448009D00CD8116 /* main.cpp */; };
 		C41B8B752448017100CD8116 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C48F5322244420F700AB0D49 /* OpenGL.framework */; };
 		C41B8B762448017700CD8116 /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C48F5320244420EA00AB0D49 /* GLUT.framework */; };
@@ -30,6 +34,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		4EC666482454420A00BD0312 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
 		C41B8B6C2448009D00CD8116 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -78,6 +91,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		4EC6664A2454420A00BD0312 /* 深度测试 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "深度测试"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4EC6664C2454420A00BD0312 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		C41B8B6E2448009D00CD8116 /* 三角形 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "三角形"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C41B8B702448009D00CD8116 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		C41B8B7C244806DD00CD8116 /* 金字塔3D变换 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "金字塔3D变换"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -109,6 +124,16 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		4EC666472454420A00BD0312 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4EC666522454424000BD0312 /* GLUT.framework in Frameworks */,
+				4EC666512454421600BD0312 /* libGLTools.a in Frameworks */,
+				4EC666532454424700BD0312 /* OpenGL.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C41B8B6B2448009D00CD8116 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -162,6 +187,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4EC6664B2454420A00BD0312 /* 深度测试 */ = {
+			isa = PBXGroup;
+			children = (
+				4EC6664C2454420A00BD0312 /* main.cpp */,
+			);
+			path = "深度测试";
+			sourceTree = "<group>";
+		};
 		C41B8B6F2448009D00CD8116 /* 三角形 */ = {
 			isa = PBXGroup;
 			children = (
@@ -197,6 +230,7 @@
 				C41B8B7D244806DD00CD8116 /* 金字塔3D变换 */,
 				C4AE5899244DBB750094206D /* 颜色混合 */,
 				C4809BE7244E966200364ADD /* 正背面剔除 */,
+				4EC6664B2454420A00BD0312 /* 深度测试 */,
 				C48F53022444170500AB0D49 /* Products */,
 				C48F531F244420EA00AB0D49 /* Frameworks */,
 			);
@@ -210,6 +244,7 @@
 				C41B8B7C244806DD00CD8116 /* 金字塔3D变换 */,
 				C4AE5898244DBB750094206D /* 颜色混合 */,
 				C4809BE6244E966200364ADD /* 正背面剔除 */,
+				4EC6664A2454420A00BD0312 /* 深度测试 */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -271,6 +306,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		4EC666492454420A00BD0312 /* 深度测试 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4EC666502454420A00BD0312 /* Build configuration list for PBXNativeTarget "深度测试" */;
+			buildPhases = (
+				4EC666462454420A00BD0312 /* Sources */,
+				4EC666472454420A00BD0312 /* Frameworks */,
+				4EC666482454420A00BD0312 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "深度测试";
+			productName = "深度测试";
+			productReference = 4EC6664A2454420A00BD0312 /* 深度测试 */;
+			productType = "com.apple.product-type.tool";
+		};
 		C41B8B6D2448009D00CD8116 /* 三角形 */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = C41B8B742448009D00CD8116 /* Build configuration list for PBXNativeTarget "三角形" */;
@@ -365,6 +417,9 @@
 				LastUpgradeCheck = 1130;
 				ORGANIZATIONNAME = zhaoguyixia;
 				TargetAttributes = {
+					4EC666492454420A00BD0312 = {
+						CreatedOnToolsVersion = 11.3.1;
+					};
 					C41B8B6D2448009D00CD8116 = {
 						CreatedOnToolsVersion = 11.3.1;
 					};
@@ -400,11 +455,20 @@
 				C41B8B7B244806DD00CD8116 /* 金字塔3D变换 */,
 				C4AE5897244DBB750094206D /* 颜色混合 */,
 				C4809BE5244E966200364ADD /* 正背面剔除 */,
+				4EC666492454420A00BD0312 /* 深度测试 */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
+		4EC666462454420A00BD0312 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4EC6664D2454420A00BD0312 /* main.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C41B8B6A2448009D00CD8116 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -448,6 +512,36 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
+		4EC6664E2454420A00BD0312 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3H8R395S7X;
+				ENABLE_HARDENED_RUNTIME = YES;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		4EC6664F2454420A00BD0312 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3H8R395S7X;
+				ENABLE_HARDENED_RUNTIME = YES;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		C41B8B722448009D00CD8116 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -692,6 +786,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		4EC666502454420A00BD0312 /* Build configuration list for PBXNativeTarget "深度测试" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4EC6664E2454420A00BD0312 /* Debug */,
+				4EC6664F2454420A00BD0312 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		C41B8B742448009D00CD8116 /* Build configuration list for PBXNativeTarget "三角形" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
