@@ -50,7 +50,9 @@ void render() {
     
     GLfloat lineColor[] = {0, 0, 0, 1};
     
+    // 开启正背面剔除
     glEnable(GL_CULL_FACE);
+    // 设置被剔除的面
     glCullFace(GL_BACK);
     
 //    glEnable(GL_DEPTH_TEST);
