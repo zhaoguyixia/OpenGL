@@ -55,7 +55,7 @@ void render() {
     // 设置被剔除的面
     glCullFace(GL_BACK);
     
-    glEnable(GL_DEPTH_TEST);
+//    glEnable(GL_DEPTH_TEST);
     
     
     M3DMatrix44f object;
