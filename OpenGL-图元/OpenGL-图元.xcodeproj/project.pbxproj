@@ -19,6 +19,10 @@
 		C4809BED244E968400364ADD /* libGLTools.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C48F530B2444174300AB0D49 /* libGLTools.a */; };
 		C4809BEE244E969100364ADD /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C48F5320244420EA00AB0D49 /* GLUT.framework */; };
 		C4809BEF244E969600364ADD /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C48F5322244420F700AB0D49 /* OpenGL.framework */; };
+		C480CF16245FC41300DCF6CB /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C480CF15245FC41300DCF6CB /* main.cpp */; };
+		C480CF1A245FC41A00DCF6CB /* libGLTools.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C48F530B2444174300AB0D49 /* libGLTools.a */; };
+		C480CF1B245FC43F00DCF6CB /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C48F5322244420F700AB0D49 /* OpenGL.framework */; };
+		C480CF1C245FC44500DCF6CB /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C48F5320244420EA00AB0D49 /* GLUT.framework */; };
 		C48F53052444170500AB0D49 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C48F53042444170500AB0D49 /* main.cpp */; };
 		C48F531C2444174300AB0D49 /* libGLTools.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C48F530B2444174300AB0D49 /* libGLTools.a */; };
 		C48F5321244420EA00AB0D49 /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C48F5320244420EA00AB0D49 /* GLUT.framework */; };
@@ -57,6 +61,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 		};
+		C480CF11245FC41300DCF6CB /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
 		C48F52FF2444170500AB0D49 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -85,6 +98,12 @@
 		C4809BE6244E966200364ADD /* 正背面剔除 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "正背面剔除"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4809BE8244E966200364ADD /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		C4809BF0244EC4DA00364ADD /* point.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = point.h; sourceTree = "<group>"; };
+		C480CF13245FC41300DCF6CB /* 纹理-基础 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "纹理-基础"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C480CF15245FC41300DCF6CB /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		C480CF1D245FCFFF00DCF6CB /* floor.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = floor.tga; sourceTree = "<group>"; };
+		C480CF1E245FCFFF00DCF6CB /* brick.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = brick.tga; sourceTree = "<group>"; };
+		C480CF1F245FCFFF00DCF6CB /* ceiling.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = ceiling.tga; sourceTree = "<group>"; };
+		C480CF20245FCFFF00DCF6CB /* stone.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = stone.tga; sourceTree = "<group>"; };
 		C48F53012444170500AB0D49 /* OpenGL-图元 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "OpenGL-图元"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C48F53042444170500AB0D49 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		C48F530B2444174300AB0D49 /* libGLTools.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGLTools.a; sourceTree = "<group>"; };
@@ -139,6 +158,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C480CF10245FC41300DCF6CB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C480CF1A245FC41A00DCF6CB /* libGLTools.a in Frameworks */,
+				C480CF1B245FC43F00DCF6CB /* OpenGL.framework in Frameworks */,
+				C480CF1C245FC44500DCF6CB /* GLUT.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C48F52FE2444170500AB0D49 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -187,9 +216,21 @@
 			path = "正背面剔除";
 			sourceTree = "<group>";
 		};
+		C480CF14245FC41300DCF6CB /* 纹理-基础 */ = {
+			isa = PBXGroup;
+			children = (
+				C480CF15245FC41300DCF6CB /* main.cpp */,
+			);
+			path = "纹理-基础";
+			sourceTree = "<group>";
+		};
 		C48F52F82444170500AB0D49 = {
 			isa = PBXGroup;
 			children = (
+				C480CF1E245FCFFF00DCF6CB /* brick.tga */,
+				C480CF1F245FCFFF00DCF6CB /* ceiling.tga */,
+				C480CF1D245FCFFF00DCF6CB /* floor.tga */,
+				C480CF20245FCFFF00DCF6CB /* stone.tga */,
 				C48F530C2444174300AB0D49 /* include */,
 				C48F530B2444174300AB0D49 /* libGLTools.a */,
 				C48F53032444170500AB0D49 /* OpenGL-图元 */,
@@ -197,6 +238,7 @@
 				C41B8B7D244806DD00CD8116 /* 金字塔3D变换 */,
 				C4AE5899244DBB750094206D /* 颜色混合 */,
 				C4809BE7244E966200364ADD /* 正背面剔除 */,
+				C480CF14245FC41300DCF6CB /* 纹理-基础 */,
 				C48F53022444170500AB0D49 /* Products */,
 				C48F531F244420EA00AB0D49 /* Frameworks */,
 			);
@@ -210,6 +252,7 @@
 				C41B8B7C244806DD00CD8116 /* 金字塔3D变换 */,
 				C4AE5898244DBB750094206D /* 颜色混合 */,
 				C4809BE6244E966200364ADD /* 正背面剔除 */,
+				C480CF13245FC41300DCF6CB /* 纹理-基础 */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -322,6 +365,23 @@
 			productReference = C4809BE6244E966200364ADD /* 正背面剔除 */;
 			productType = "com.apple.product-type.tool";
 		};
+		C480CF12245FC41300DCF6CB /* 纹理-基础 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C480CF19245FC41300DCF6CB /* Build configuration list for PBXNativeTarget "纹理-基础" */;
+			buildPhases = (
+				C480CF0F245FC41300DCF6CB /* Sources */,
+				C480CF10245FC41300DCF6CB /* Frameworks */,
+				C480CF11245FC41300DCF6CB /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "纹理-基础";
+			productName = "纹理-基础";
+			productReference = C480CF13245FC41300DCF6CB /* 纹理-基础 */;
+			productType = "com.apple.product-type.tool";
+		};
 		C48F53002444170500AB0D49 /* OpenGL-图元 */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = C48F53082444170500AB0D49 /* Build configuration list for PBXNativeTarget "OpenGL-图元" */;
@@ -374,6 +434,9 @@
 					C4809BE5244E966200364ADD = {
 						CreatedOnToolsVersion = 11.3.1;
 					};
+					C480CF12245FC41300DCF6CB = {
+						CreatedOnToolsVersion = 11.3.1;
+					};
 					C48F53002444170500AB0D49 = {
 						CreatedOnToolsVersion = 11.3.1;
 					};
@@ -400,6 +463,7 @@
 				C41B8B7B244806DD00CD8116 /* 金字塔3D变换 */,
 				C4AE5897244DBB750094206D /* 颜色混合 */,
 				C4809BE5244E966200364ADD /* 正背面剔除 */,
+				C480CF12245FC41300DCF6CB /* 纹理-基础 */,
 			);
 		};
 /* End PBXProject section */
@@ -426,6 +490,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				C4809BE9244E966200364ADD /* main.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C480CF0F245FC41300DCF6CB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C480CF16245FC41300DCF6CB /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -514,6 +586,32 @@
 			name = Debug;
 		};
 		C4809BEB244E966200364ADD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		C480CF17245FC41300DCF6CB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		C480CF18245FC41300DCF6CB /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
@@ -715,6 +813,15 @@
 			buildConfigurations = (
 				C4809BEA244E966200364ADD /* Debug */,
 				C4809BEB244E966200364ADD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C480CF19245FC41300DCF6CB /* Build configuration list for PBXNativeTarget "纹理-基础" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C480CF17245FC41300DCF6CB /* Debug */,
+				C480CF18245FC41300DCF6CB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

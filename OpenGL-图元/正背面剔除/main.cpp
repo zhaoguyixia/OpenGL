@@ -19,7 +19,7 @@ GLShaderManager shaderManager;
 /// 投影
 GLFrustum viewFrustum;
 
-GLFrame objectFrame;
+GLFrame cameraFrame;
 
 GLBatch batch1, batch2, batch3, batch4, batch5, batch6;
 
@@ -59,7 +59,7 @@ void render() {
     
     
     M3DMatrix44f object;
-    objectFrame.GetMatrix(object);
+    cameraFrame.GetMatrix(object);
     
     M3DMatrix44f matrix;
     m3dMatrixMultiply44(matrix, viewFrustum.GetProjectionMatrix(), object);
@@ -85,7 +85,7 @@ void render() {
 void setup() {
     glClearColor(0.5, 0.5, 0.5, 1);
     
-    objectFrame.MoveForward(7);
+    cameraFrame.MoveForward(7);
     
     shaderManager.InitializeStockShaders();
     
@@ -102,19 +102,19 @@ void setup() {
 void move(int key, int x, int y) {
     
     if (key == GLUT_KEY_UP) {
-        objectFrame.RotateWorld(m3dDegToRad(5), 1, 0, 0);
+        cameraFrame.RotateWorld(m3dDegToRad(5), 1, 0, 0);
     }
     
     if (key == GLUT_KEY_DOWN) {
-        objectFrame.RotateWorld(m3dDegToRad(-5), 1, 0, 0);
+        cameraFrame.RotateWorld(m3dDegToRad(-5), 1, 0, 0);
     }
     
     if (key == GLUT_KEY_LEFT) {
-        objectFrame.RotateWorld(m3dDegToRad(5), 0, 1, 0);
+        cameraFrame.RotateWorld(m3dDegToRad(5), 0, 1, 0);
     }
     
     if (key == GLUT_KEY_RIGHT) {
-        objectFrame.RotateWorld(m3dDegToRad(-5), 0, 1, 0);
+        cameraFrame.RotateWorld(m3dDegToRad(-5), 0, 1, 0);
     }
     
     glutPostRedisplay();

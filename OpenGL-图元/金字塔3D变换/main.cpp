@@ -36,7 +36,7 @@ GLMatrixStack modelViewMatrix;
 GLMatrixStack projectionMatrix;
 
 // 观察者
-GLFrame objectFrame;
+GLFrame cameraFrame;
 
 void changeSize(int w, int h) {
     glViewport(0, 0, w, h);
@@ -60,7 +60,7 @@ void render() {
     
 //    modelViewMatrix.PushMatrix(projectionMatrix.GetMatrix());
 
-    modelViewMatrix.PushMatrix(objectFrame);
+    modelViewMatrix.PushMatrix(cameraFrame);
     
 //    modelViewMatrix.MultMatrix(objectFrame);
     
@@ -86,7 +86,7 @@ void render() {
 void setup() {
     glClearColor(1, 1, 1, 1.0);
     
-    objectFrame.MoveForward(7);
+    cameraFrame.MoveForward(7);
 //
 //    objectFrame.RotateWorld(m3dDegToRad(45), 1, 0, 0);
     
@@ -126,16 +126,16 @@ void setup() {
 
 void specialKey(int key, int x, int y) {
     if (key == GLUT_KEY_UP) {
-        objectFrame.RotateWorld(m3dDegToRad(5), 1, 0, 0);
+        cameraFrame.RotateWorld(m3dDegToRad(5), 1, 0, 0);
     }
     if (key == GLUT_KEY_DOWN) {
-        objectFrame.RotateWorld(m3dDegToRad(-5), 1, 0, 0);
+        cameraFrame.RotateWorld(m3dDegToRad(-5), 1, 0, 0);
     }
     if (key == GLUT_KEY_LEFT) {
-        objectFrame.RotateWorld(m3dDegToRad(5), 0, 1, 0);
+        cameraFrame.RotateWorld(m3dDegToRad(5), 0, 1, 0);
     }
     if (key == GLUT_KEY_RIGHT) {
-        objectFrame.RotateWorld(m3dDegToRad(-5), 0, 1, 0);
+        cameraFrame.RotateWorld(m3dDegToRad(-5), 0, 1, 0);
     }
     glutPostRedisplay();
 }
