@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4E40AB5F24611CFF0094AE5E /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E40AB5E24611CFF0094AE5E /* CoreFoundation.framework */; };
 		4EC6664D2454420A00BD0312 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4EC6664C2454420A00BD0312 /* main.cpp */; };
 		4EC666512454421600BD0312 /* libGLTools.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C48F530B2444174300AB0D49 /* libGLTools.a */; };
 		4EC666522454424000BD0312 /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C48F5320244420EA00AB0D49 /* GLUT.framework */; };
@@ -104,6 +105,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		4E40AB5E24611CFF0094AE5E /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 		4EC6664A2454420A00BD0312 /* 深度测试 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "深度测试"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4EC6664C2454420A00BD0312 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		C41B8B6E2448009D00CD8116 /* 三角形 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "三角形"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -187,6 +189,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4E40AB5F24611CFF0094AE5E /* CoreFoundation.framework in Frameworks */,
 				C480CF1A245FC41A00DCF6CB /* libGLTools.a in Frameworks */,
 				C480CF1B245FC43F00DCF6CB /* OpenGL.framework in Frameworks */,
 				C480CF1C245FC44500DCF6CB /* GLUT.framework in Frameworks */,
@@ -271,11 +274,8 @@
 				C41B8B7D244806DD00CD8116 /* 金字塔3D变换 */,
 				C4AE5899244DBB750094206D /* 颜色混合 */,
 				C4809BE7244E966200364ADD /* 正背面剔除 */,
-<<<<<<< HEAD
 				C480CF14245FC41300DCF6CB /* 纹理-基础 */,
-=======
 				4EC6664B2454420A00BD0312 /* 深度测试 */,
->>>>>>> 7e12e01746d0036fc27a98b66b73aef273b95cc3
 				C48F53022444170500AB0D49 /* Products */,
 				C48F531F244420EA00AB0D49 /* Frameworks */,
 			);
@@ -289,11 +289,8 @@
 				C41B8B7C244806DD00CD8116 /* 金字塔3D变换 */,
 				C4AE5898244DBB750094206D /* 颜色混合 */,
 				C4809BE6244E966200364ADD /* 正背面剔除 */,
-<<<<<<< HEAD
 				C480CF13245FC41300DCF6CB /* 纹理-基础 */,
-=======
 				4EC6664A2454420A00BD0312 /* 深度测试 */,
->>>>>>> 7e12e01746d0036fc27a98b66b73aef273b95cc3
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -338,6 +335,7 @@
 		C48F531F244420EA00AB0D49 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4E40AB5E24611CFF0094AE5E /* CoreFoundation.framework */,
 				C48F5322244420F700AB0D49 /* OpenGL.framework */,
 				C48F5320244420EA00AB0D49 /* GLUT.framework */,
 			);
@@ -524,11 +522,8 @@
 				C41B8B7B244806DD00CD8116 /* 金字塔3D变换 */,
 				C4AE5897244DBB750094206D /* 颜色混合 */,
 				C4809BE5244E966200364ADD /* 正背面剔除 */,
-<<<<<<< HEAD
 				C480CF12245FC41300DCF6CB /* 纹理-基础 */,
-=======
 				4EC666492454420A00BD0312 /* 深度测试 */,
->>>>>>> 7e12e01746d0036fc27a98b66b73aef273b95cc3
 			);
 		};
 /* End PBXProject section */

@@ -7,6 +7,7 @@
 //
 
 #include <stdio.h>
+#include <CoreFoundation/CoreFoundation.h>
 #include "glew.h"
 #include "GLTools.h"
 #include <GLUT/GLUT.h>
@@ -15,7 +16,8 @@
 #include "GLGeometryTransform.h"
 #include "GLFrustum.h"
 
-const char *file = "/Users/wantexe/Desktop/OpenGL-系列/OpenGL-图元/stone.tga";
+// 这里需要绝对路径
+const char *file = "/OpenGL-图元/stone.tga";
 
 GLfloat points[] = {
     -0.5,  0.5, 0,
@@ -131,6 +133,16 @@ void setup() {
     // 将GL_TEXTURE_2D与textureID关联，后续需要用到textureID
 //    glBindTexture(GL_TEXTURE_2D, textureID);
     
+//    CFBundleRef mainBundle = CFBundleGetMainBundle();
+//
+//    CFURLRef resourcesURL = CFBundleCopyResourcesDirectoryURL(mainBundle);
+//
+//    CFURLRef fileURL = CFBundleCopyResourceURL(CFBundleGetMainBundle(), CFSTR("stone"),CFSTR("tga"), NULL);
+//    CFStringRef filePath = CFURLCopyFileSystemPath(fileURL, kCFURLPOSIXPathStyle);
+//    CFStringEncoding encodingMethod = CFStringGetSystemEncoding();
+//    const char *path = CFStringGetCStringPtr(filePath, encodingMethod);
+//
+//    printf("%s \n", path);
     
     // 加载图片
     loadTGATexture(file);
