@@ -24,7 +24,10 @@
 }
 
 - (void)setupUI{
-    TextureView *textureView = [[TextureView alloc] initWithFrame:self.view.bounds];
+    float y = (self.view.frame.size.height-self.view.frame.size.width)/2.0;
+    float w = self.view.frame.size.width;
+    float h = self.view.frame.size.width;
+    TextureView *textureView = [[TextureView alloc] initWithFrame:CGRectMake(0, y, w, h)];
     [self.view addSubview:textureView];
 }
 

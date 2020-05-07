@@ -4,7 +4,7 @@ attribute vec2 vTextCoor;
 varying lowp vec2 varyTextCoord;
 
 void main() {
-    vartyTextCoord = vTextCoor;
+    varyTextCoord = vTextCoor;
     gl_Position = position;
 }
 
