@@ -7,7 +7,7 @@ uniform sampler2D colorMap;
 
 const float maxRadius = 0.5;
 
-const float angle = 80.0;
+const float angle = 90.0;
 
 void main() {
     
@@ -16,11 +16,10 @@ void main() {
     
     float r = length(xy);
 
-    float a = atan(xy.x, xy.y) + radians(angle);
+    float a = atan(xy.y, xy.x) + radians(angle);
 
     if (r <= maxRadius) {
-        // 重新计算
-        xy = varyTextCoord + vec2(cos(a), sin(a));
+        xy = varyTextCoord + vec2(r*cos(a), r*sin(a));
     }else{
         xy = varyTextCoord;
     }

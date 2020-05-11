@@ -132,7 +132,7 @@
     glVertexAttribPointer(textCoord, 2, GL_FLOAT, GL_FALSE, sizeof(GLfloat)*5, (GLfloat*)NULL+3);
     
     // 加载纹理
-    [GLSLUtils readTexture:@"nature"];
+    [GLSLUtils readTexture:@"girl"];
     // 取色
     glUniform1i(glGetUniformLocation(self.program, "colorMap"), 0);
     
