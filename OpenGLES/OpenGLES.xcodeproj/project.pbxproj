@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4E23409B24679F7D00CA5681 /* FilterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E23409A24679F7D00CA5681 /* FilterViewController.m */; };
+		4E23409E24679F9600CA5681 /* FilterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E23409D24679F9600CA5681 /* FilterView.m */; };
+		4E2340A02467AE2400CA5681 /* split.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 4E23409F2467AE2400CA5681 /* split.vsh */; };
+		4E2340A22467AE3600CA5681 /* split.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 4E2340A12467AE3600CA5681 /* split.fsh */; };
+		4E2340A52467B45F00CA5681 /* FilterTitleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E2340A42467B45F00CA5681 /* FilterTitleCell.m */; };
 		4E3F2DC32462FEFB0020CE2E /* TextureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E3F2DC22462FEFB0020CE2E /* TextureViewController.m */; };
 		4E3F2DC62462FF220020CE2E /* TextureView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E3F2DC52462FF220020CE2E /* TextureView.m */; };
 		4E3F2DC82462FF3E0020CE2E /* normal.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 4E3F2DC72462FF3E0020CE2E /* normal.vsh */; };
@@ -14,6 +19,8 @@
 		4E3F2DCD246300AB0020CE2E /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E3F2DCC246300AB0020CE2E /* OpenGLES.framework */; };
 		4E3F2DD12463065F0020CE2E /* GLSLUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E3F2DD02463065F0020CE2E /* GLSLUtils.m */; };
 		4E3F2DD3246308E80020CE2E /* example in Resources */ = {isa = PBXBuildFile; fileRef = 4E3F2DD2246308E80020CE2E /* example */; };
+		4EB0477E24683E2600F74978 /* vortex.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 4EB0477D24683E2600F74978 /* vortex.vsh */; };
+		4EB0478024683E2F00F74978 /* vortex.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 4EB0477F24683E2F00F74978 /* vortex.fsh */; };
 		C499E8A82462D6B50005F2D3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C499E8A72462D6B50005F2D3 /* AppDelegate.m */; };
 		C499E8AE2462D6B50005F2D3 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C499E8AD2462D6B50005F2D3 /* ViewController.m */; };
 		C499E8B12462D6B50005F2D3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C499E8AF2462D6B50005F2D3 /* Main.storyboard */; };
@@ -41,6 +48,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4E23409924679F7D00CA5681 /* FilterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FilterViewController.h; sourceTree = "<group>"; };
+		4E23409A24679F7D00CA5681 /* FilterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FilterViewController.m; sourceTree = "<group>"; };
+		4E23409C24679F9600CA5681 /* FilterView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FilterView.h; sourceTree = "<group>"; };
+		4E23409D24679F9600CA5681 /* FilterView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FilterView.m; sourceTree = "<group>"; };
+		4E23409F2467AE2400CA5681 /* split.vsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = split.vsh; sourceTree = "<group>"; };
+		4E2340A12467AE3600CA5681 /* split.fsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = split.fsh; sourceTree = "<group>"; };
+		4E2340A32467B45F00CA5681 /* FilterTitleCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FilterTitleCell.h; sourceTree = "<group>"; };
+		4E2340A42467B45F00CA5681 /* FilterTitleCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FilterTitleCell.m; sourceTree = "<group>"; };
 		4E3F2DC12462FEFB0020CE2E /* TextureViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TextureViewController.h; sourceTree = "<group>"; };
 		4E3F2DC22462FEFB0020CE2E /* TextureViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TextureViewController.m; sourceTree = "<group>"; };
 		4E3F2DC42462FF220020CE2E /* TextureView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TextureView.h; sourceTree = "<group>"; };
@@ -51,6 +66,8 @@
 		4E3F2DCF2463065F0020CE2E /* GLSLUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLSLUtils.h; sourceTree = "<group>"; };
 		4E3F2DD02463065F0020CE2E /* GLSLUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLSLUtils.m; sourceTree = "<group>"; };
 		4E3F2DD2246308E80020CE2E /* example */ = {isa = PBXFileReference; lastKnownFileType = text; path = example; sourceTree = "<group>"; };
+		4EB0477D24683E2600F74978 /* vortex.vsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = vortex.vsh; sourceTree = "<group>"; };
+		4EB0477F24683E2F00F74978 /* vortex.fsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = vortex.fsh; sourceTree = "<group>"; };
 		C499E8A32462D6B50005F2D3 /* OpenGLES.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OpenGLES.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C499E8A62462D6B50005F2D3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C499E8A72462D6B50005F2D3 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -94,6 +111,39 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4E23409624679F6200CA5681 /* filter */ = {
+			isa = PBXGroup;
+			children = (
+				4E23409724679F6200CA5681 /* FilterView */,
+				4E23409824679F6200CA5681 /* FilterType */,
+			);
+			path = filter;
+			sourceTree = "<group>";
+		};
+		4E23409724679F6200CA5681 /* FilterView */ = {
+			isa = PBXGroup;
+			children = (
+				4E23409924679F7D00CA5681 /* FilterViewController.h */,
+				4E23409A24679F7D00CA5681 /* FilterViewController.m */,
+				4E23409C24679F9600CA5681 /* FilterView.h */,
+				4E23409D24679F9600CA5681 /* FilterView.m */,
+				4E2340A32467B45F00CA5681 /* FilterTitleCell.h */,
+				4E2340A42467B45F00CA5681 /* FilterTitleCell.m */,
+			);
+			path = FilterView;
+			sourceTree = "<group>";
+		};
+		4E23409824679F6200CA5681 /* FilterType */ = {
+			isa = PBXGroup;
+			children = (
+				4E23409F2467AE2400CA5681 /* split.vsh */,
+				4E2340A12467AE3600CA5681 /* split.fsh */,
+				4EB0477D24683E2600F74978 /* vortex.vsh */,
+				4EB0477F24683E2F00F74978 /* vortex.fsh */,
+			);
+			path = FilterType;
+			sourceTree = "<group>";
+		};
 		4E3F2DC02462FECB0020CE2E /* texture */ = {
 			isa = PBXGroup;
 			children = (
@@ -153,6 +203,7 @@
 				C499E8A72462D6B50005F2D3 /* AppDelegate.m */,
 				C499E8AC2462D6B50005F2D3 /* ViewController.h */,
 				C499E8AD2462D6B50005F2D3 /* ViewController.m */,
+				4E23409624679F6200CA5681 /* filter */,
 				4E3F2DCE2463065F0020CE2E /* GLSLUtils */,
 				4E3F2DC02462FECB0020CE2E /* texture */,
 				C499E8AF2462D6B50005F2D3 /* Main.storyboard */,
@@ -285,9 +336,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				C499E8B32462D6B90005F2D3 /* Assets.xcassets in Resources */,
+				4EB0477E24683E2600F74978 /* vortex.vsh in Resources */,
+				4E2340A22467AE3600CA5681 /* split.fsh in Resources */,
 				4E3F2DC82462FF3E0020CE2E /* normal.vsh in Resources */,
 				4E3F2DD3246308E80020CE2E /* example in Resources */,
 				4E3F2DCA2462FF4F0020CE2E /* normal.fsh in Resources */,
+				4EB0478024683E2F00F74978 /* vortex.fsh in Resources */,
+				4E2340A02467AE2400CA5681 /* split.vsh in Resources */,
 				C499E8B12462D6B50005F2D3 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -313,10 +368,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4E2340A52467B45F00CA5681 /* FilterTitleCell.m in Sources */,
+				4E23409E24679F9600CA5681 /* FilterView.m in Sources */,
 				4E3F2DC62462FF220020CE2E /* TextureView.m in Sources */,
 				C499E8AE2462D6B50005F2D3 /* ViewController.m in Sources */,
 				C499E8A82462D6B50005F2D3 /* AppDelegate.m in Sources */,
 				4E3F2DD12463065F0020CE2E /* GLSLUtils.m in Sources */,
+				4E23409B24679F7D00CA5681 /* FilterViewController.m in Sources */,
 				4E3F2DC32462FEFB0020CE2E /* TextureViewController.m in Sources */,
 				C499E8B92462D6B90005F2D3 /* main.m in Sources */,
 			);

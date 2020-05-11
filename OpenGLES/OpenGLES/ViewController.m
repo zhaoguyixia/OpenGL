@@ -21,8 +21,10 @@
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor cyanColor];
     self.title = @"OpenGL ES";
-    self.dataSource = @[@"TextureViewController"];
-    self.titleArray = @[@"加载纹理"];
+    self.dataSource = @[@"TextureViewController",
+                        @"FilterViewController"];
+    self.titleArray = @[@"加载纹理",
+                        @"各种滤镜"];
     [self createUI];
 }
 
