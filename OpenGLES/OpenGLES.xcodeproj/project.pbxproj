@@ -19,6 +19,8 @@
 		4E3F2DCD246300AB0020CE2E /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E3F2DCC246300AB0020CE2E /* OpenGLES.framework */; };
 		4E3F2DD12463065F0020CE2E /* GLSLUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E3F2DD02463065F0020CE2E /* GLSLUtils.m */; };
 		4E3F2DD3246308E80020CE2E /* example in Resources */ = {isa = PBXBuildFile; fileRef = 4E3F2DD2246308E80020CE2E /* example */; };
+		4E88AE942471735400CFEF11 /* mosaic.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 4E88AE932471735400CFEF11 /* mosaic.vsh */; };
+		4E88AE962471736500CFEF11 /* mosaic.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 4E88AE952471736500CFEF11 /* mosaic.fsh */; };
 		4EB0477E24683E2600F74978 /* vortex.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 4EB0477D24683E2600F74978 /* vortex.vsh */; };
 		4EB0478024683E2F00F74978 /* vortex.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 4EB0477F24683E2F00F74978 /* vortex.fsh */; };
 		C499E8A82462D6B50005F2D3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C499E8A72462D6B50005F2D3 /* AppDelegate.m */; };
@@ -66,6 +68,8 @@
 		4E3F2DCF2463065F0020CE2E /* GLSLUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLSLUtils.h; sourceTree = "<group>"; };
 		4E3F2DD02463065F0020CE2E /* GLSLUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLSLUtils.m; sourceTree = "<group>"; };
 		4E3F2DD2246308E80020CE2E /* example */ = {isa = PBXFileReference; lastKnownFileType = text; path = example; sourceTree = "<group>"; };
+		4E88AE932471735400CFEF11 /* mosaic.vsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = mosaic.vsh; sourceTree = "<group>"; };
+		4E88AE952471736500CFEF11 /* mosaic.fsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = mosaic.fsh; sourceTree = "<group>"; };
 		4EB0477D24683E2600F74978 /* vortex.vsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = vortex.vsh; sourceTree = "<group>"; };
 		4EB0477F24683E2F00F74978 /* vortex.fsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = vortex.fsh; sourceTree = "<group>"; };
 		C499E8A32462D6B50005F2D3 /* OpenGLES.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OpenGLES.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -140,6 +144,8 @@
 				4E2340A12467AE3600CA5681 /* split.fsh */,
 				4EB0477D24683E2600F74978 /* vortex.vsh */,
 				4EB0477F24683E2F00F74978 /* vortex.fsh */,
+				4E88AE932471735400CFEF11 /* mosaic.vsh */,
+				4E88AE952471736500CFEF11 /* mosaic.fsh */,
 			);
 			path = FilterType;
 			sourceTree = "<group>";
@@ -335,7 +341,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4E88AE962471736500CFEF11 /* mosaic.fsh in Resources */,
 				C499E8B32462D6B90005F2D3 /* Assets.xcassets in Resources */,
+				4E88AE942471735400CFEF11 /* mosaic.vsh in Resources */,
 				4EB0477E24683E2600F74978 /* vortex.vsh in Resources */,
 				4E2340A22467AE3600CA5681 /* split.fsh in Resources */,
 				4E3F2DC82462FF3E0020CE2E /* normal.vsh in Resources */,
