@@ -1,10 +1,9 @@
 
 attribute vec4 position;
-attribute vec2 vTextcoord;
-
-varying lowp varyingCoord;
+attribute vec2 vTextCoor;
+varying vec2 varyTextCoord;
 
 void main() {
-    varyingCoord = vTextcoord;
+    varyTextCoord = vTextCoor;
     gl_Position = position;
 }

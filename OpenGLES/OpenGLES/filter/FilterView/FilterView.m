@@ -133,13 +133,20 @@
     glVertexAttribPointer(textCoord, 2, GL_FLOAT, GL_FALSE, sizeof(GLfloat)*5, (GLfloat*)NULL+3);
     
     // 加载纹理
-    [GLSLUtils readTexture:@"nature"];
+    [GLSLUtils readTexture:@"girl2"];
     
 //    static float vor = 0.1;
     
     if ([self.filterName isEqualToString:@"vortex"]) {
         GLint vortex = glGetUniformLocation(self.program, "yinzi");
         glUniform1f(vortex, self.vortexSub);
+    } else if ([self.filterName isEqualToString:@"mosaic"]) {
+        GLint rowCount = glGetUniformLocation(self.program, "rowCount");
+        if (self.vortexSub < 0.1) {
+            _vortexSub = 0.1;
+        }
+        _vortexSub *= 10;
+        glUniform1i(rowCount, (int)self.vortexSub);
     }
     
     // 取色
@@ -158,7 +165,7 @@
 
 - (void)setVortexSub:(float)vortexSub{
     _vortexSub = vortexSub;
-    if ([self.filterName isEqualToString:@"vortex"]) {
+    if ([self.filterName isEqualToString:@"vortex"] || [self.filterName isEqualToString:@"mosaic"]) {
         [self render];
     }
 }

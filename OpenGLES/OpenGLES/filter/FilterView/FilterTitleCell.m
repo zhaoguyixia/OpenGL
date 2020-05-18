@@ -27,4 +27,13 @@
 - (void)setTitle:(NSString *)title{
     self.titleLabel.text = title;
 }
+- (void)setIsSelected:(BOOL)isSelected{
+    _isSelected = isSelected;
+    if (isSelected) {
+        self.backgroundColor = [UIColor cyanColor];
+    }else{
+        self.backgroundColor = [UIColor grayColor];
+    }
+}
+
 @end
