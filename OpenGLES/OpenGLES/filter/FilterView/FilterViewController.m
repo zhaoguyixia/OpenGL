@@ -48,6 +48,19 @@
     [collection registerClass:[FilterTitleCell class] forCellWithReuseIdentifier:@"FilterTitleCell"];
     [self.view addSubview:collection];
     
+    UISlider *slider = [[UISlider alloc] initWithFrame:CGRectMake(30, 120, width-60, 50)];
+    slider.maximumValue = 10.0;
+    slider.minimumValue = 0.0;
+    slider.minimumTrackTintColor = [UIColor cyanColor];
+    slider.maximumTrackTintColor = [UIColor blackColor];
+    [slider addTarget:self action:@selector(slide:) forControlEvents:UIControlEventValueChanged];
+    [self.view addSubview:slider];
+}
+
+- (void)slide:(UISlider *)slider{
+    NSLog(@"%f", slider.value);
+    float vortex = slider.value;
+    filterView.vortexSub = vortex;
 }
 
 - (void)initData{

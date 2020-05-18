@@ -14,6 +14,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, copy) NSString *filterName;
 
+@property (nonatomic, assign) float vortexSub;
+
 @end
 
 NS_ASSUME_NONNULL_END

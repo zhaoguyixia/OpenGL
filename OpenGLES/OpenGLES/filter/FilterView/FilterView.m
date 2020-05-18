@@ -29,6 +29,7 @@
 - (instancetype)initWithFrame:(CGRect)frame{
     if (self = [super initWithFrame:frame]) {
         _filterName = @"normal";
+        _vortexSub = 0.0;
         width = self.frame.size.width;
         height = self.frame.size.height;
         scale = [UIScreen mainScreen].scale;
@@ -132,7 +133,15 @@
     glVertexAttribPointer(textCoord, 2, GL_FLOAT, GL_FALSE, sizeof(GLfloat)*5, (GLfloat*)NULL+3);
     
     // 加载纹理
-    [GLSLUtils readTexture:@"girl"];
+    [GLSLUtils readTexture:@"nature"];
+    
+//    static float vor = 0.1;
+    
+    if ([self.filterName isEqualToString:@"vortex"]) {
+        GLint vortex = glGetUniformLocation(self.program, "yinzi");
+        glUniform1f(vortex, self.vortexSub);
+    }
+    
     // 取色
     glUniform1i(glGetUniformLocation(self.program, "colorMap"), 0);
     
@@ -145,6 +154,13 @@
 - (void)setFilterName:(NSString *)filterName{
     _filterName = filterName;
     [self render];
+}
+
+- (void)setVortexSub:(float)vortexSub{
+    _vortexSub = vortexSub;
+    if ([self.filterName isEqualToString:@"vortex"]) {
+        [self render];
+    }
 }
 
 @end
