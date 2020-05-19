@@ -30,6 +30,7 @@
     if (self = [super initWithFrame:frame]) {
         _filterName = @"normal";
         _vortexSub = 0.0;
+        _imageName = @"girl2";
         width = self.frame.size.width;
         height = self.frame.size.height;
         scale = [UIScreen mainScreen].scale;
@@ -133,7 +134,7 @@
     glVertexAttribPointer(textCoord, 2, GL_FLOAT, GL_FALSE, sizeof(GLfloat)*5, (GLfloat*)NULL+3);
     
     // 加载纹理
-    [GLSLUtils readTexture:@"girl2"];
+    [GLSLUtils readTexture:_imageName];
     
 //    static float vor = 0.1;
     
@@ -166,6 +167,13 @@
 - (void)setVortexSub:(float)vortexSub{
     _vortexSub = vortexSub;
     if ([self.filterName isEqualToString:@"vortex"] || [self.filterName isEqualToString:@"mosaic"]) {
+        [self render];
+    }
+}
+
+- (void)setImageName:(NSString *)imageName{
+    _imageName = imageName;
+    if ([imageName length]) {
         [self render];
     }
 }

@@ -14,7 +14,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, copy) NSString *filterName;
 
+@property (nonatomic, copy) NSString *imageName;
+
 @property (nonatomic, assign) float vortexSub;
+
+/// 灵魂出窍时的缩放比例
+@property (nonatomic, assign) float soulScale;
 
 @end
 

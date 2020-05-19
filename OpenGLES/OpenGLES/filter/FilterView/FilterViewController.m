@@ -15,9 +15,10 @@
     FilterView *filterView;
     NSArray *filterArray;
     NSArray *titleArray;
+    UIImageView *backImage;
     UICollectionView *collection;
-//    FilterTitleCell *selectCell;
     NSIndexPath *selectIndexPath;
+    NSString *imageName;
 }
 @end
 
@@ -35,6 +36,7 @@
     float width = self.view.frame.size.width;
     float height = self.view.frame.size.height;
     filterView = [[FilterView alloc] initWithFrame:CGRectMake(0, (height-width)/2.0, width, width)];
+    filterView.imageName = imageName;
     [self.view addSubview:filterView];
     
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
@@ -66,9 +68,10 @@
 }
 
 - (void)initData{
+    imageName = @"girl2";
     selectIndexPath = [NSIndexPath indexPathForRow:0 inSection:0];
-    filterArray = @[@"normal", @"split", @"vortex", @"mosaic"];
-    titleArray = @[@"正常", @"分屏", @"旋涡", @"马赛克"];
+    filterArray = @[@"normal", @"split", @"vortex", @"mosaic", @"soul"];
+    titleArray = @[@"正常", @"分屏", @"旋涡", @"马赛克", @"灵魂"];
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
