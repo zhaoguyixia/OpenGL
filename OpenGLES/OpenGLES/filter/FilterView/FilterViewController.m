@@ -18,6 +18,7 @@
     UIImageView *backImage;
     UICollectionView *collection;
     NSIndexPath *selectIndexPath;
+    FilterTitleCell *selectCell;
     NSString *imageName;
 }
 @end
@@ -70,8 +71,8 @@
 - (void)initData{
     imageName = @"girl2";
     selectIndexPath = [NSIndexPath indexPathForRow:0 inSection:0];
-    filterArray = @[@"normal", @"split", @"vortex", @"mosaic", @"soul"];
-    titleArray = @[@"正常", @"分屏", @"旋涡", @"马赛克", @"灵魂"];
+    filterArray = @[@"normal", @"split", @"vortex", @"mosaic", @"soul", @"gray"];
+    titleArray = @[@"正常", @"分屏", @"旋涡", @"马赛克", @"灵魂", @"灰度"];
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
@@ -79,6 +80,7 @@
     [cell setTitle:titleArray[indexPath.row]];
     if (selectIndexPath != nil && indexPath.row == selectIndexPath.row) {
         cell.isSelected = YES;
+        selectCell = cell;
     }else{
         cell.isSelected = NO;
     }
@@ -91,13 +93,19 @@
     return 1;
 }
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-    if (selectIndexPath.row != indexPath.row) {
-        FilterTitleCell *cell = (FilterTitleCell *)[collectionView cellForItemAtIndexPath:selectIndexPath];
-        cell.isSelected = NO;
-        selectIndexPath = indexPath;
-        cell = (FilterTitleCell *)[collectionView cellForItemAtIndexPath:selectIndexPath];
-        cell.isSelected = YES;
+    if (selectIndexPath.row == indexPath.row) {
+        return;
     }
+    
+    if (selectCell) {
+        selectCell.isSelected = NO;
+    }
+    FilterTitleCell *cell = (FilterTitleCell *)[collectionView cellForItemAtIndexPath:selectIndexPath];
+    cell.isSelected = NO;
+    selectIndexPath = indexPath;
+    cell = (FilterTitleCell *)[collectionView cellForItemAtIndexPath:selectIndexPath];
+    cell.isSelected = YES;
+    selectCell = cell;
     
     NSString *name = filterArray[indexPath.row];
     filterView.filterName = name;

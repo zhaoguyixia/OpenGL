@@ -14,6 +14,9 @@
     float width;
     float height;
     float scale;
+    NSTimer *timer;
+    float filterScale;
+    int direction;
 }
 @property (nonatomic, strong) CAEAGLLayer *myLayer;
 @property (nonatomic, strong) EAGLContext *context;
@@ -30,7 +33,9 @@
     if (self = [super initWithFrame:frame]) {
         _filterName = @"normal";
         _vortexSub = 0.0;
+        direction = 1;
         _imageName = @"girl2";
+        filterScale = 0;
         width = self.frame.size.width;
         height = self.frame.size.height;
         scale = [UIScreen mainScreen].scale;
@@ -148,6 +153,9 @@
         }
         _vortexSub *= 10;
         glUniform1i(rowCount, (int)self.vortexSub);
+    } else if ([self.filterName isEqualToString:@"soul"]) {
+        GLint sourScale = glGetUniformLocation(self.program, "scale");
+        glUniform1f(sourScale, filterScale);
     }
     
     // 取色
@@ -161,7 +169,13 @@
 
 - (void)setFilterName:(NSString *)filterName{
     _filterName = filterName;
-    [self render];
+    if ([self.filterName isEqualToString:@"soul"]) {
+        [self startTimer];
+    }else{
+        [self render];
+        [self stop];
+    }
+    
 }
 
 - (void)setVortexSub:(float)vortexSub{
@@ -176,6 +190,38 @@
     if ([imageName length]) {
         [self render];
     }
+}
+
+- (void)stop{
+    if (timer) {
+        [timer invalidate];
+        timer = nil;
+    }
+}
+
+- (void)startTimer{
+    if (timer == nil) {
+        __weak typeof(self) weakSelf = self;
+        if (@available(iOS 10.0, *)) {
+            timer = [NSTimer scheduledTimerWithTimeInterval:0.01 repeats:YES block:^(NSTimer * _Nonnull timer) {
+                [weakSelf soulMove];
+            }];
+            [[NSRunLoop currentRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
+        } else {
+            // Fallback on earlier versions
+        }
+    }
+}
+
+- (void)soulMove{
+    if (filterScale >= 0.3) {
+        filterScale = 0;
+    }
+//    else if (filterScale<=0) {
+//        direction = 1;
+//    }
+    filterScale += (0.03 * direction);
+    [self render];
 }
 
 @end
