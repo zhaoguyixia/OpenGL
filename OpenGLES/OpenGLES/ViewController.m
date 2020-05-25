@@ -22,9 +22,11 @@
     self.view.backgroundColor = [UIColor cyanColor];
     self.title = @"OpenGL ES";
     self.dataSource = @[@"TextureViewController",
-                        @"FilterViewController"];
+                        @"FilterViewController",
+                        @"ComposeVideoViewController"];
     self.titleArray = @[@"加载纹理",
-                        @"各种滤镜"];
+                        @"各种滤镜",
+                        @"视频合成"];
     [self createUI];
 }
 

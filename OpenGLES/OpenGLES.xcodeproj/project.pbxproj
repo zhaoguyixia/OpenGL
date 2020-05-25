@@ -34,6 +34,7 @@
 		C499E8CE2462D6BA0005F2D3 /* OpenGLESUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = C499E8CD2462D6BA0005F2D3 /* OpenGLESUITests.m */; };
 		C4C64EFF24755AC5002851B7 /* gray.vsh in Resources */ = {isa = PBXBuildFile; fileRef = C4C64EFE24755AC5002851B7 /* gray.vsh */; };
 		C4C64F0124755ACF002851B7 /* gray.fsh in Resources */ = {isa = PBXBuildFile; fileRef = C4C64F0024755ACF002851B7 /* gray.fsh */; };
+		C4D85628247BDFFA00EE97C2 /* ComposeVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4D85627247BDFFA00EE97C2 /* ComposeVideoViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,6 +96,8 @@
 		C499E8CF2462D6BA0005F2D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C4C64EFE24755AC5002851B7 /* gray.vsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = gray.vsh; sourceTree = "<group>"; };
 		C4C64F0024755ACF002851B7 /* gray.fsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = gray.fsh; sourceTree = "<group>"; };
+		C4D85626247BDFFA00EE97C2 /* ComposeVideoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ComposeVideoViewController.h; sourceTree = "<group>"; };
+		C4D85627247BDFFA00EE97C2 /* ComposeVideoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ComposeVideoViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -221,6 +224,7 @@
 				C499E8A72462D6B50005F2D3 /* AppDelegate.m */,
 				C499E8AC2462D6B50005F2D3 /* ViewController.h */,
 				C499E8AD2462D6B50005F2D3 /* ViewController.m */,
+				C4D85625247BDE6B00EE97C2 /* composeVideo */,
 				4E23409624679F6200CA5681 /* filter */,
 				4E3F2DCE2463065F0020CE2E /* GLSLUtils */,
 				4E3F2DC02462FECB0020CE2E /* texture */,
@@ -248,6 +252,15 @@
 				C499E8CF2462D6BA0005F2D3 /* Info.plist */,
 			);
 			path = OpenGLESUITests;
+			sourceTree = "<group>";
+		};
+		C4D85625247BDE6B00EE97C2 /* composeVideo */ = {
+			isa = PBXGroup;
+			children = (
+				C4D85626247BDFFA00EE97C2 /* ComposeVideoViewController.h */,
+				C4D85627247BDFFA00EE97C2 /* ComposeVideoViewController.m */,
+			);
+			path = composeVideo;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -393,6 +406,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4E2340A52467B45F00CA5681 /* FilterTitleCell.m in Sources */,
+				C4D85628247BDFFA00EE97C2 /* ComposeVideoViewController.m in Sources */,
 				4E23409E24679F9600CA5681 /* FilterView.m in Sources */,
 				4E3F2DC62462FF220020CE2E /* TextureView.m in Sources */,
 				C499E8AE2462D6B50005F2D3 /* ViewController.m in Sources */,
