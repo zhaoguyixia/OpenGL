@@ -17,9 +17,9 @@
 }
 
 //视频地址
-@property(nonatomic,strong)NSString*theVideoPath;
+@property(nonatomic,strong) NSString *theVideoPath;
 //合成进度
-@property(nonatomic,strong)UILabel *ww_progressLbe;
+@property(nonatomic,strong) UILabel *ww_progressLbe;
 @end
 
 @implementation ComposeVideoViewController
@@ -28,7 +28,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor whiteColor];
-    
+    [self ww_setupInit];
     [self setupUI];
 }
 
@@ -45,8 +45,8 @@
     UIImage *img = nil;
     
     //实先准备21张图片，命名为0.jpg至21.jpg
-    for (int i = 0; i < 22; i++) {
-        name = [NSString stringWithFormat:@"%d",i];
+    for (int i = 0; i < 10; i++) {
+        name = [NSString stringWithFormat:@"video_demo_%d",i];
         img = [UIImage imageNamed:name];
         [imageArr addObject:img];
     }
@@ -87,7 +87,6 @@
     NSString *moviePath = [[paths objectAtIndex:0]stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.mov",@"test"]];
 
     self.theVideoPath = moviePath;
-    
     CGSize size =  CGSizeMake(320, 480);
     NSError *error = nil;
     
@@ -160,7 +159,7 @@
             }];
 
             
-            buffer = (CVPixelBufferRef)[self pixelBufferFromCGImage:[[imageArray objectAtIndex:idx] CGImage] size:size];
+            buffer = [self pixelBufferFromCGImage:[[imageArray objectAtIndex:idx] CGImage] size:size];
             
             if(buffer){
                 
@@ -184,10 +183,10 @@
 - (CVPixelBufferRef)pixelBufferFromCGImage:(CGImageRef)image size:(CGSize)size {
     
     NSDictionary *options = [NSDictionary dictionaryWithObjectsAndKeys:
+    
+                            [NSNumber numberWithBool:YES],kCVPixelBufferCGImageCompatibilityKey,
                            
-                           [NSNumber numberWithBool:YES],kCVPixelBufferCGImageCompatibilityKey,
-                           
-                           [NSNumber numberWithBool:YES],kCVPixelBufferCGBitmapContextCompatibilityKey,nil];
+                            [NSNumber numberWithBool:YES],kCVPixelBufferCGBitmapContextCompatibilityKey,nil];
     
     CVPixelBufferRef pxbuffer = NULL;
     
@@ -209,22 +208,19 @@
     
     NSParameterAssert(context);
     
-    //使用CGContextDrawImage绘制图片  这里设置不正确的话 会导致视频颠倒
+    // 使用CGContextDrawImage绘制图片  这里设置不正确的话 会导致视频颠倒
     
-    //    当通过CGContextDrawImage绘制图片到一个context中时，如果传入的是UIImage的CGImageRef，因为UIKit和CG坐标系y轴相反，所以图片绘制将会上下颠倒
+    // 当通过CGContextDrawImage绘制图片到一个context中时，如果传入的是UIImage的CGImageRef，因为UIKit和CG坐标系y轴相反，所以图片绘制将会上下颠倒
     
     CGContextDrawImage(context,CGRectMake(0,0,CGImageGetWidth(image),CGImageGetHeight(image)), image);
     
     // 释放色彩空间
-    
     CGColorSpaceRelease(rgbColorSpace);
     
     // 释放context
-    
     CGContextRelease(context);
     
     // 解锁pixel buffer
-    
     CVPixelBufferUnlockBaseAddress(pxbuffer,0);
     
     return pxbuffer;
