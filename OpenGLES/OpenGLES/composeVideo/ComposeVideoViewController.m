@@ -200,9 +200,12 @@
     
     NSParameterAssert(pxdata !=NULL);
     
-    CGColorSpaceRef rgbColorSpace=CGColorSpaceCreateDeviceRGB();
+    // 色彩空间
+    CGColorSpaceRef rgbColorSpace = CGColorSpaceCreateDeviceRGB();
     
-    //    当你调用这个函数的时候，Quartz创建一个位图绘制环境，也就是位图上下文。当你向上下文中绘制信息时，Quartz把你要绘制的信息作为位图数据绘制到指定的内存块。一个新的位图上下文的像素格式由三个参数决定：每个组件的位数，颜色空间，alpha选项
+    // 当你调用这个函数的时候，Quartz创建一个位图绘制环境，也就是位图上下文。
+    // 当你向上下文中绘制信息时，Quartz把你要绘制的信息作为位图数据绘制到指定的内存块。
+    // 一个新的位图上下文的像素格式由三个参数决定：每个组件的位数，颜色空间，alpha选项
     
     CGContextRef context = CGBitmapContextCreate(pxdata,size.width,size.height,8,4*size.width,rgbColorSpace,kCGImageAlphaPremultipliedFirst);
     
