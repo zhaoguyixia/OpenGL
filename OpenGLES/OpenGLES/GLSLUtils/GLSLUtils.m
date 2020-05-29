@@ -44,13 +44,16 @@
 }
 
 + (void)readTexture:(NSString *)imgName{
-    
     // 判断是哪里的图片，目前先认为是asset中的
+    [GLSLUtils readTextureForImage:[UIImage imageNamed:imgName]];
+}
+
++ (void)readTextureForImage:(UIImage *)image{
     
     // 1.将UIimage转成 CGImageRef
-    CGImageRef spriteImage = [UIImage imageNamed:imgName].CGImage;
+    CGImageRef spriteImage = image.CGImage;
     if (!spriteImage) {
-        NSLog(@"fail load image %@", imgName);
+        NSLog(@"fail load image %@", image);
         exit(1);
     }
     

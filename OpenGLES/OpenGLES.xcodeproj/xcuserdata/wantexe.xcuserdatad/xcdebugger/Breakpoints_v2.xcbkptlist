@@ -3,4 +3,198 @@
    uuid = "8F643E47-AA9C-426D-96D2-4E5E9B59D9EE"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B2AAEDD8-CFE6-40A7-9023-BFF0B121B97F"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "OpenGLES/GLSLUtils/VideoDirector.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "187"
+            endingLineNumber = "187"
+            landmarkName = "-getProcessImage"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B45B229F-ED31-4D95-AD94-184D670820A8"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "OpenGLES/GLSLUtils/VideoDirector.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "197"
+            endingLineNumber = "197"
+            landmarkName = "-getProcessImage"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "872F618C-E6F9-4285-B22D-7FF506B1A063"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "OpenGLES/GLSLUtils/VideoDirector.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "199"
+            endingLineNumber = "199"
+            landmarkName = "-getProcessImage"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C159B35D-E09D-442C-A629-7B7FF7357DDB"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "OpenGLES/GLSLUtils/VideoDirector.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "205"
+            endingLineNumber = "205"
+            landmarkName = "-getProcessImage"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2BA4434D-3D2C-458B-9A30-C9F22E4E763A"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "OpenGLES/composeVideo/ComposeVideoViewController.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "223"
+            endingLineNumber = "223"
+            landmarkName = "-pixelBufferFromCGImage:size:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D0C8AF5F-12CE-43D5-A7E1-737737040B8E"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "OpenGLES/composeVideo/ComposeVideoViewController.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "208"
+            endingLineNumber = "208"
+            landmarkName = "-pixelBufferFromCGImage:size:"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "D0C8AF5F-12CE-43D5-A7E1-737737040B8E - da3d8a70d680eee9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[ComposeVideoViewController pixelBufferFromCGImage:size:]"
+                  moduleName = "OpenGLES"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/wantexe/Desktop/OpenGL-%E7%B3%BB%E5%88%97/OpenGLES/OpenGLES/composeVideo/ComposeVideoViewController.m"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "208"
+                  endingLineNumber = "208"
+                  offsetFromSymbolStart = "437">
+               </Location>
+               <Location
+                  uuid = "D0C8AF5F-12CE-43D5-A7E1-737737040B8E - da3d8a70d680eee9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[ComposeVideoViewController pixelBufferFromCGImage:size:]"
+                  moduleName = "OpenGLES"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/wantexe/Desktop/OpenGL-%E7%B3%BB%E5%88%97/OpenGLES/OpenGLES/composeVideo/ComposeVideoViewController.m"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "208"
+                  endingLineNumber = "208"
+                  offsetFromSymbolStart = "493">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "81C8D00A-D735-4A09-9894-ECB33B671D2E"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "OpenGLES/composeVideo/ComposeVideoViewController.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "206"
+            endingLineNumber = "206"
+            landmarkName = "-pixelBufferFromCGImage:size:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0F11EBAB-F444-47C2-81F9-F9064835CDFA"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "OpenGLES/composeVideo/ComposeVideoViewController.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "214"
+            endingLineNumber = "214"
+            landmarkName = "-pixelBufferFromCGImage:size:"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "0F11EBAB-F444-47C2-81F9-F9064835CDFA - da3d8a70d680eee9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[ComposeVideoViewController pixelBufferFromCGImage:size:]"
+                  moduleName = "OpenGLES"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/wantexe/Desktop/OpenGL-%E7%B3%BB%E5%88%97/OpenGLES/OpenGLES/composeVideo/ComposeVideoViewController.m"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "214"
+                  endingLineNumber = "214"
+                  offsetFromSymbolStart = "825">
+               </Location>
+               <Location
+                  uuid = "0F11EBAB-F444-47C2-81F9-F9064835CDFA - da3d8a70d680eee9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[ComposeVideoViewController pixelBufferFromCGImage:size:]"
+                  moduleName = "OpenGLES"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/wantexe/Desktop/OpenGL-%E7%B3%BB%E5%88%97/OpenGLES/OpenGLES/composeVideo/ComposeVideoViewController.m"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "214"
+                  endingLineNumber = "214"
+                  offsetFromSymbolStart = "853">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

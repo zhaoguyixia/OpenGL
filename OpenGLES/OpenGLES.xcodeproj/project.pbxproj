@@ -25,6 +25,8 @@
 		C4131FEB2473802B00139442 /* soul.fsh in Resources */ = {isa = PBXBuildFile; fileRef = C4131FEA2473802B00139442 /* soul.fsh */; };
 		C43922D12472849500BDE8DC /* normal.vsh in Resources */ = {isa = PBXBuildFile; fileRef = C43922CF2472849400BDE8DC /* normal.vsh */; };
 		C43922D22472849500BDE8DC /* normal.fsh in Resources */ = {isa = PBXBuildFile; fileRef = C43922D02472849500BDE8DC /* normal.fsh */; };
+		C483149B2480AACA004A43E2 /* MFGLProgram.m in Sources */ = {isa = PBXBuildFile; fileRef = C483149A2480AACA004A43E2 /* MFGLProgram.m */; };
+		C483149E2480F429004A43E2 /* VideoDirector.m in Sources */ = {isa = PBXBuildFile; fileRef = C483149D2480F429004A43E2 /* VideoDirector.m */; };
 		C499E8A82462D6B50005F2D3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C499E8A72462D6B50005F2D3 /* AppDelegate.m */; };
 		C499E8AE2462D6B50005F2D3 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C499E8AD2462D6B50005F2D3 /* ViewController.m */; };
 		C499E8B12462D6B50005F2D3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C499E8AF2462D6B50005F2D3 /* Main.storyboard */; };
@@ -79,6 +81,10 @@
 		C4131FEA2473802B00139442 /* soul.fsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = soul.fsh; sourceTree = "<group>"; };
 		C43922CF2472849400BDE8DC /* normal.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = normal.vsh; sourceTree = "<group>"; };
 		C43922D02472849500BDE8DC /* normal.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = normal.fsh; sourceTree = "<group>"; };
+		C48314992480AACA004A43E2 /* MFGLProgram.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFGLProgram.h; sourceTree = "<group>"; };
+		C483149A2480AACA004A43E2 /* MFGLProgram.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFGLProgram.m; sourceTree = "<group>"; };
+		C483149C2480F429004A43E2 /* VideoDirector.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoDirector.h; sourceTree = "<group>"; };
+		C483149D2480F429004A43E2 /* VideoDirector.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VideoDirector.m; sourceTree = "<group>"; };
 		C499E8A32462D6B50005F2D3 /* OpenGLES.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OpenGLES.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C499E8A62462D6B50005F2D3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C499E8A72462D6B50005F2D3 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -192,6 +198,10 @@
 			children = (
 				4E3F2DCF2463065F0020CE2E /* GLSLUtils.h */,
 				4E3F2DD02463065F0020CE2E /* GLSLUtils.m */,
+				C48314992480AACA004A43E2 /* MFGLProgram.h */,
+				C483149A2480AACA004A43E2 /* MFGLProgram.m */,
+				C483149C2480F429004A43E2 /* VideoDirector.h */,
+				C483149D2480F429004A43E2 /* VideoDirector.m */,
 			);
 			path = GLSLUtils;
 			sourceTree = "<group>";
@@ -406,11 +416,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				4E2340A52467B45F00CA5681 /* FilterTitleCell.m in Sources */,
+				C483149E2480F429004A43E2 /* VideoDirector.m in Sources */,
 				C4D85628247BDFFA00EE97C2 /* ComposeVideoViewController.m in Sources */,
 				4E23409E24679F9600CA5681 /* FilterView.m in Sources */,
 				4E3F2DC62462FF220020CE2E /* TextureView.m in Sources */,
 				C499E8AE2462D6B50005F2D3 /* ViewController.m in Sources */,
 				C499E8A82462D6B50005F2D3 /* AppDelegate.m in Sources */,
+				C483149B2480AACA004A43E2 /* MFGLProgram.m in Sources */,
 				4E3F2DD12463065F0020CE2E /* GLSLUtils.m in Sources */,
 				4E23409B24679F7D00CA5681 /* FilterViewController.m in Sources */,
 				4E3F2DC32462FEFB0020CE2E /* TextureViewController.m in Sources */,

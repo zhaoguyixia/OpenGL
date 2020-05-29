@@ -8,12 +8,15 @@
 
 #import "ComposeVideoViewController.h"
 #import <AVFoundation/AVFoundation.h>
-#import <AVKit/AVKit.h>
+//#import <AVKit/AVKit.h>
+#import "VideoDirector.h"
 
 @interface ComposeVideoViewController ()
 {
     NSMutableArray*imageArr;    //未压缩的图片
     NSMutableArray*imageArray;  //经过压缩的图片
+    VideoDirector *videoDirector;
+    UIImageView *imageView;
 }
 
 //视频地址
@@ -28,12 +31,22 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor whiteColor];
+    
+    imageView = [[UIImageView alloc] initWithFrame:CGRectMake(100, 100, 100, 100)];
+    [self.view addSubview:imageView];
+    
     [self ww_setupInit];
     [self setupUI];
 }
 
 - (void)setupUI{
     [self composeVideo];
+    
+//    videoDirector = [VideoDirector videoDirector];
+//    UIImage *img = [UIImage imageNamed:@"video_demo_0"];
+//    [videoDirector setImage:img];
+//    [videoDirector process];
+//    imageView.image = [videoDirector getProcessImage];
 }
 
 - (void)ww_setupInit {
