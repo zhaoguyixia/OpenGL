@@ -11,12 +11,15 @@
 //#import <AVKit/AVKit.h>
 #import "VideoDirector.h"
 
+#import "GPUImage.h"
+
 @interface ComposeVideoViewController ()
 {
     NSMutableArray*imageArr;    //未压缩的图片
     NSMutableArray*imageArray;  //经过压缩的图片
     VideoDirector *videoDirector;
     UIImageView *imageView;
+    UIView *showView;
 }
 
 //视频地址
@@ -32,21 +35,58 @@
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor whiteColor];
     
-    imageView = [[UIImageView alloc] initWithFrame:CGRectMake(100, 100, 100, 100)];
+    float width = self.view.frame.size.width;
+    
+    imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 200, width, width)];
     [self.view addSubview:imageView];
     
-    [self ww_setupInit];
+//    showView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 200, width, width)];
+//    [self.view addSubview:showView];
+    
+//    [self ww_setupInit];
     [self setupUI];
 }
 
 - (void)setupUI{
-    [self composeVideo];
+//    [self composeVideo];
     
-//    videoDirector = [VideoDirector videoDirector];
-//    UIImage *img = [UIImage imageNamed:@"video_demo_0"];
-//    [videoDirector setImage:img];
-//    [videoDirector process];
-//    imageView.image = [videoDirector getProcessImage];
+    UIImage *inputImage = [UIImage imageNamed:@"video_demo_8"];
+    
+    
+    int ii = 1;
+    if (ii == 1) {
+        videoDirector = [VideoDirector new];
+        [videoDirector bindView:imageView];
+        [videoDirector setImage:inputImage];
+        imageView.image = [videoDirector getProcessImage];
+    }else{
+        GPUImageSketchFilter *passthroughFilter = [[GPUImageSketchFilter alloc] init];
+
+        // 3.设置参数(要渲染的区域)
+
+        [passthroughFilter forceProcessingAtSize:inputImage.size];
+
+        [passthroughFilter useNextFrameForImageCapture];
+
+        // 4.获取数据源(将UIImage对象给GPUImagePicture)
+
+        GPUImagePicture *stillImageSource = [[GPUImagePicture alloc] initWithImage:inputImage];
+
+        // 5.给数据源添加滤镜
+
+        [stillImageSource addTarget:passthroughFilter];
+
+        // 6.开始渲染
+
+        [stillImageSource processImage];
+
+        // 7.获取渲染后的图片
+
+        UIImage *newImage = [passthroughFilter imageFromCurrentFramebuffer];
+        imageView.image = newImage;
+    }
+    
+    
 }
 
 - (void)ww_setupInit {

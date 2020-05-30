@@ -48,7 +48,7 @@
 - (void)setupLayer{
     self.myLayer = [CAEAGLLayer layer];
     self.myLayer.frame = self.bounds;
-    [self.myLayer setContentsScale:[UIScreen mainScreen].scale];
+//    [self.myLayer setContentsScale:[UIScreen mainScreen].scale];
     [self.layer addSublayer:self.myLayer];
     
     self.myLayer.drawableProperties = [NSDictionary dictionaryWithObjectsAndKeys:@false, kEAGLDrawablePropertyRetainedBacking, kEAGLDrawablePropertyColorFormat, kEAGLColorFormatRGBA8, nil];
@@ -57,7 +57,7 @@
 
 
 - (void)setupContent{
-    EAGLContext *context = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES3];
+    EAGLContext *context = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES2];
     if (!context) {
         exit(1);
     }
@@ -95,8 +95,10 @@
 }
 
 - (void)render{
-    float scale = [UIScreen mainScreen].scale;
-    glViewport(0, 0, self.width*scale, self.height*scale);
+//    float scale = [UIScreen mainScreen].scale;
+//    glViewport(0, 0, self.width*scale, self.height*scale);
+    
+    glViewport(0, 0, self.width, self.height);
     
     glClearColor(0.5, 0.5, 0.5, 1);
     glClear(GL_COLOR_BUFFER_BIT);

@@ -7,7 +7,7 @@
 //
 
 #import "VideoDirector.h"
-#import <OpenGLES/ES3/gl.h>
+#import <OpenGLES/ES2/gl.h>
 #import <GLKit/GLKit.h>
 #import "MFGLProgram.h"
 
@@ -21,9 +21,12 @@ static VideoDirector *_videoDirector;
     CVOpenGLESTextureCacheRef _coreVideoTextureCache;
     CVOpenGLESTextureRef renderTexture;
 }
-@property (nonatomic, strong) EAGLContext *content;
+@property (nonatomic, strong) EAGLContext *context;
 @property (nonatomic, assign) GLuint frameBuffer;
+@property (nonatomic, assign) GLuint texture;
 @property (nonatomic, strong) MFGLProgram *mfProgram;
+@property (nonatomic, strong) CAEAGLLayer *mfLayer;
+@property (nonatomic, assign) GLuint renderBuffer;
 @end
 
 @implementation VideoDirector
@@ -40,32 +43,71 @@ static VideoDirector *_videoDirector;
     if (self = [super init]) {
         readLockCount = 0;
         
-        self.content = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES3];
-        if (self.content) {
-            [EAGLContext setCurrentContext:self.content];
-        }
+        [self initLayer];
         
-        glDeleteFramebuffers(1, &_frameBuffer);
-        _frameBuffer = 0;
-        glGenFramebuffers(1, &_frameBuffer);
-        glBindBuffer(GL_FRAMEBUFFER, _frameBuffer);
+        [self initContext];
         
-        NSString *vFile = [[NSBundle mainBundle] pathForResource:@"split" ofType:@"vsh"];
-        NSString *fFile = [[NSBundle mainBundle] pathForResource:@"split" ofType:@"fsh"];
-        self.mfProgram = [[MFGLProgram alloc] initWithVerFile:vFile fragFile:fFile];
-        [self.mfProgram linkUseProgram];
+        [self initFrameBuffer];
+        
+        [self initRenderBuffer];
+        
+        [self initProgram];
         
     }
     return self;
 }
 
+- (void)initLayer{
+    self.mfLayer = [CAEAGLLayer layer];
+    
+    self.mfLayer.drawableProperties = [NSDictionary dictionaryWithObjectsAndKeys:@false, kEAGLDrawablePropertyRetainedBacking, kEAGLDrawablePropertyColorFormat, kEAGLColorFormatRGBA8, nil];
+}
+
+- (void)initContext{
+    self.context = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES2];
+    if (self.context) {
+        [EAGLContext setCurrentContext:self.context];
+    }
+}
+
+- (void)initFrameBuffer{
+    glDeleteFramebuffers(1, &_frameBuffer);
+    _frameBuffer = 0;
+    glGenFramebuffers(1, &_frameBuffer);
+    glBindFramebuffer(GL_FRAMEBUFFER, _frameBuffer);
+    
+}
+
+- (void)initRenderBuffer{
+    glDeleteRenderbuffers(1, &_renderBuffer);
+    _renderBuffer = 0;
+    glGenRenderbuffers(1, &_renderBuffer);
+    glBindRenderbuffer(GL_RENDERBUFFER, _renderBuffer);
+}
+
+- (void)initProgram{
+    NSString *vFile = [[NSBundle mainBundle] pathForResource:@"split" ofType:@"vsh"];
+    NSString *fFile = [[NSBundle mainBundle] pathForResource:@"split" ofType:@"fsh"];
+    self.mfProgram = [[MFGLProgram alloc] initWithVerFile:vFile fragFile:fFile];
+    [self.mfProgram linkUseProgram];
+}
+
+- (void)bindView:(UIView *)view{
+    self.mfLayer.frame = view.bounds;
+    [view.layer addSublayer:self.mfLayer];
+    
+//    [self.context renderbufferStorage:GL_RENDERBUFFER fromDrawable:self.mfLayer];
+//
+//    glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_RENDERBUFFER, _frameBuffer);
+}
 
 - (void)setImage:(UIImage *)image{
     _size = image.size;
-    float scale = [UIScreen mainScreen].scale;
+    
     float width = image.size.width;
     float height = image.size.height;
-    glViewport(0, 0, width*scale, height*scale);
+    
+    glViewport(0, 0, (int)width, (int)height);
     
     glClearColor(0.5, 0.5, 0.5, 1);
     glClear(GL_COLOR_BUFFER_BIT);
@@ -89,18 +131,41 @@ static VideoDirector *_videoDirector;
     
     [self.mfProgram useLocationAttribute:"vTextCoor" perReadCount:2 points:textCoors];
     
+    [self generateTexture];
     // 加载纹理
     [GLSLUtils readTextureForImage:image];
     
+    glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, _texture, 0);
     
     [self.mfProgram clearColorMap:"colorMap"];
     
     // 绘图
     glDrawArrays(GL_TRIANGLE_FAN, 0, 4);
     
-    [self.content presentRenderbuffer:GL_RENDERBUFFER];
+    GLenum err = glCheckFramebufferStatus(GL_FRAMEBUFFER);
+//    GL_FRAMEBUFFER_INCOMPLETE_MISSING_ATTACHMENT
+    NSLog(@"frame buffer status %u", err);
+    if (err != GL_FRAMEBUFFER_COMPLETE) {
+        NSLog(@"frame buffer error");
+    }
     
+    if (self.mfLayer) {
+//        [self.context presentRenderbuffer:GL_RENDERBUFFER];
+    }
 }
+
+- (void)generateTexture{
+    glActiveTexture(GL_TEXTURE1);
+    glGenTextures(1, &_texture);
+    glBindTexture(GL_TEXTURE_2D, _texture);
+    
+//    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+//    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+//    // This is necessary for non-power-of-two textures
+//    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+//    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+}
+
 
 - (void)process{
     
@@ -169,38 +234,19 @@ static VideoDirector *_videoDirector;
     
     GLubyte *rawImagePixels;
     CGDataProviderRef dataProvider = NULL;
-    if ([VideoDirector supportsFastTextureUpload]) {
-        NSUInteger paddedWidth = CVPixelBufferGetBytesPerRow(renderTarget);
-        
-        NSUInteger paddedBytesForImage = paddedWidth * (int)_size.height * 4;
-
-        // ??
-        glFinish();
-
-        CFRetain(renderTarget);
-
-        //
-        [self lockForReading];
-
-        rawImagePixels = (GLubyte *)CVPixelBufferGetBaseAddress(renderTarget);
-        
-        dataProvider = CGDataProviderCreateWithData((__bridge_retained void*)self, rawImagePixels, paddedBytesForImage, dataProviderUnlockCallback);
-        
-//        [self unlockAfterReading];
-        
-    }else{
-        [self unlockAfterReading];
-    }
+    
+    
+//    glBindFramebuffer(GL_FRAMEBUFFER, _frameBuffer);
+//    glViewport(0, 0, (int)_size.width, (int)_size.height);
+    
+    rawImagePixels = (GLubyte *)malloc(totalBytesForImage);
+    glReadPixels(0, 0, (int)_size.width, (int)_size.height, GL_RGBA, GL_UNSIGNED_BYTE, rawImagePixels);
+    dataProvider = CGDataProviderCreateWithData(NULL, rawImagePixels, totalBytesForImage,dataProviderReleaseCallback1);
     
     CGColorSpaceRef defaultRGBColorSpace = CGColorSpaceCreateDeviceRGB();
     
-    if ([VideoDirector supportsFastTextureUpload]) {
-        
-        cgImageFromBytes = CGImageCreate((int)_size.width, (int)_size.height, 8, 32, CVPixelBufferGetBytesPerRow(renderTarget), defaultRGBColorSpace, kCGBitmapByteOrder32Little | kCGImageAlphaPremultipliedFirst, dataProvider, NULL, NO, kCGRenderingIntentDefault);
-        
-    }else{
-        cgImageFromBytes = CGImageCreate((int)_size.width, (int)_size.height, 8, 32, 4 * (int)_size.width, defaultRGBColorSpace, kCGBitmapByteOrderDefault | kCGImageAlphaLast, dataProvider, NULL, NO, kCGRenderingIntentDefault);
-    }
+    
+    cgImageFromBytes = CGImageCreate((int)_size.width, (int)_size.height, 8, 32, 4 * (int)_size.width, defaultRGBColorSpace, kCGBitmapByteOrderDefault | kCGImageAlphaLast, dataProvider, NULL, NO, kCGRenderingIntentDefault);
     
     CGDataProviderRelease(dataProvider);
     CGColorSpaceRelease(defaultRGBColorSpace);
@@ -213,7 +259,7 @@ static VideoDirector *_videoDirector;
     if (_coreVideoTextureCache == NULL)
     {
 #if defined(__IPHONE_6_0)
-        CVReturn err = CVOpenGLESTextureCacheCreate(kCFAllocatorDefault, NULL, self.content, NULL, &_coreVideoTextureCache);
+        CVReturn err = CVOpenGLESTextureCacheCreate(kCFAllocatorDefault, NULL, self.context, NULL, &_coreVideoTextureCache);
 #else
         CVReturn err = CVOpenGLESTextureCacheCreate(kCFAllocatorDefault, NULL, (__bridge void *)self.content, NULL, &_coreVideoTextureCache);
 #endif
@@ -264,8 +310,12 @@ static VideoDirector *_videoDirector;
 
 #endif
 }
+void dataProviderReleaseCallback1 (void *info, const void *data, size_t size)
+{
+    free((void *)data);
+}
 
-void dataProviderUnlockCallback (void *info, const void *data, size_t size)
+void dataProviderUnlockCallback1 (void *info, const void *data, size_t size)
 {
     
 //    GPUImageFramebuffer *framebuffer = (__bridge_transfer GPUImageFramebuffer*)info;

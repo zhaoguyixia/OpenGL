@@ -19,10 +19,12 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param image 图片数据
 - (void)setImage:(UIImage *)image;
 
-- (void)process;
+//- (void)process;
 
 /// 取处理后的图片
 - (UIImage *)getProcessImage;
+
+- (void)bindView:(UIView *)view;
 
 @end
 
