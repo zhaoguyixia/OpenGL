@@ -7,6 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <OpenGLES/ES2/gl.h>
+#import <OpenGLES/ES2/glext.h>
 #import <GLKit/GLKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
@@ -21,6 +23,8 @@ NS_ASSUME_NONNULL_BEGIN
 /// 将图片数据读到显存中，然后通过片元着色器程序中的内建函数texture2D取出来对应点的颜色值
 /// @param imgName 图片名
 + (void)readTexture:(NSString *)imgName;
+
++ (void)readTextureForImage:(UIImage *)image;
 
 @end
 

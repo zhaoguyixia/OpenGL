@@ -7,13 +7,13 @@
 //
 
 #import "FilterView.h"
-#import <OpenGLES/ES3/gl.h>
+#import <OpenGLES/ES2/gl.h>
 #import "GLSLUtils.h"
 
 @interface FilterView (){
     float width;
     float height;
-    float scale;
+//    float scale;
     NSTimer *timer;
     float filterScale;
     int direction;
@@ -38,7 +38,7 @@
         filterScale = 0;
         width = self.frame.size.width;
         height = self.frame.size.height;
-        scale = [UIScreen mainScreen].scale;
+//        scale = [UIScreen mainScreen].scale;
         [self setupLayer];
         [self setupBuffer];
         [self render];
@@ -49,14 +49,14 @@
 - (void)setupLayer{
     self.myLayer = [CAEAGLLayer layer];
     self.myLayer.frame = self.bounds;
-    [self.myLayer setContentsScale:scale];
+//    [self.myLayer setContentsScale:scale];
     [self.layer addSublayer:self.myLayer];
     
     self.myLayer.drawableProperties = @{@false:kEAGLDrawablePropertyRetainedBacking,
                                         kEAGLDrawablePropertyColorFormat:kEAGLColorFormatRGBA8
     };
     
-    EAGLContext *context = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES3];
+    EAGLContext *context = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES2];
     if (context==nil) {
         exit(1);
     }
@@ -86,7 +86,7 @@
 }
 
 - (void)render{
-    glViewport(0, 0, width*scale, height*scale);
+    glViewport(0, 0, width, height);
     glClearColor(0.5, 0.5, 0.5, 1.0);
     glClear(GL_COLOR_BUFFER_BIT);
     if (self.filterName==nil) {
