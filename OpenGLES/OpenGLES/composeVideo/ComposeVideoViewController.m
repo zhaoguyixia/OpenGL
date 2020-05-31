@@ -52,7 +52,6 @@
     
     UIImage *inputImage = [UIImage imageNamed:@"video_demo_8"];
     
-    
     int ii = 1;
     if (ii == 1) {
         videoDirector = [VideoDirector new];

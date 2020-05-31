@@ -96,9 +96,8 @@ static VideoDirector *_videoDirector;
     self.mfLayer.frame = view.bounds;
     [view.layer addSublayer:self.mfLayer];
     
-//    [self.context renderbufferStorage:GL_RENDERBUFFER fromDrawable:self.mfLayer];
-//
-//    glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_RENDERBUFFER, _frameBuffer);
+    [self.context renderbufferStorage:GL_RENDERBUFFER fromDrawable:self.mfLayer];
+    glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_RENDERBUFFER, _frameBuffer);
 }
 
 - (void)setImage:(UIImage *)image{
@@ -135,7 +134,7 @@ static VideoDirector *_videoDirector;
     // 加载纹理
     [GLSLUtils readTextureForImage:image];
     
-    glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, _texture, 0);
+//    glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, _texture, 0);
     
     [self.mfProgram clearColorMap:"colorMap"];
     

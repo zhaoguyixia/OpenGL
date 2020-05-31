@@ -12,16 +12,13 @@
 @interface TextureView ()
 @property (nonatomic, assign) float width;
 @property (nonatomic, assign) float height;
-<<<<<<< HEAD
+
 @property (nonatomic, assign) GLuint program;
-=======
+
 @property (nonatomic, strong) EAGLContext *context;
 @property (nonatomic, strong) MFGLProgram *mfProgram;
 @property (nonatomic, strong) CAEAGLLayer *myLayer;
->>>>>>> 25adef45b384021de43963d5cb3c582ae7ca6997
 
-@property (nonatomic, strong) EAGLContext *context;
-@property (nonatomic, strong) CAEAGLLayer *myLayer;
 @property (nonatomic, assign) GLuint renderBuffer;
 @property (nonatomic, assign) GLuint frameBuffer;
 
