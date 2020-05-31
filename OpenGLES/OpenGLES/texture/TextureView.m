@@ -13,10 +13,10 @@
 @interface TextureView ()
 @property (nonatomic, assign) float width;
 @property (nonatomic, assign) float height;
-@property (nonatomic, strong) EAGLContext *context;
 @property (nonatomic, assign) GLuint program;
-@property (nonatomic, strong) CAEAGLLayer *myLayer;
 
+@property (nonatomic, strong) EAGLContext *context;
+@property (nonatomic, strong) CAEAGLLayer *myLayer;
 @property (nonatomic, assign) GLuint renderBuffer;
 @property (nonatomic, assign) GLuint frameBuffer;
 
@@ -50,7 +50,9 @@
     [self.myLayer setContentsScale:[UIScreen mainScreen].scale];
     [self.layer addSublayer:self.myLayer];
     
-    self.myLayer.drawableProperties = [NSDictionary dictionaryWithObjectsAndKeys:@false, kEAGLDrawablePropertyRetainedBacking, kEAGLDrawablePropertyColorFormat, kEAGLColorFormatRGBA8, nil];
+    self.myLayer.drawableProperties = [NSDictionary dictionaryWithObjectsAndKeys:
+                                       @false, kEAGLDrawablePropertyRetainedBacking,
+                                       kEAGLDrawablePropertyColorFormat, kEAGLColorFormatRGBA8, nil];
     
 }
 
