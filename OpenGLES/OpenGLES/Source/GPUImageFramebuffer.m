@@ -184,10 +184,12 @@ void dataProviderUnlockCallback (void *info, const void *data, size_t size);
         }
         else
         {
+            NSLog(@"GL_FRAMEBUFFER-----------  %u", glCheckFramebufferStatus(GL_FRAMEBUFFER));
             [self generateTexture];
 // 测试
+            NSLog(@"GL_FRAMEBUFFER-----------  %u", glCheckFramebufferStatus(GL_FRAMEBUFFER));
             glBindTexture(GL_TEXTURE_2D, _texture);
-            
+            NSLog(@"GL_FRAMEBUFFER-----------  %u", glCheckFramebufferStatus(GL_FRAMEBUFFER));
             glTexImage2D(GL_TEXTURE_2D, 0, _textureOptions.internalFormat, (int)_size.width, (int)_size.height, 0, _textureOptions.format, _textureOptions.type, 0);
             glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, _texture, 0);
         }

@@ -51,6 +51,8 @@ static VideoDirector *_videoDirector;
         
         [self initRenderBuffer];
         
+//        [self generateTexture];
+        
         [self initProgram];
         
     }
@@ -78,6 +80,19 @@ static VideoDirector *_videoDirector;
     
 }
 
+- (void)generateTexture{
+    glActiveTexture(GL_TEXTURE1);
+    glGenTextures(1, &_texture);
+    glBindTexture(GL_TEXTURE_2D, _texture);
+    
+    GLenum err = glCheckFramebufferStatus(GL_FRAMEBUFFER);
+    if (err != GL_FRAMEBUFFER_COMPLETE) {
+        NSLog(@"frame buffer error");
+    }else{
+        NSLog(@"frame buffer success");
+    }
+}
+
 - (void)initRenderBuffer{
     glDeleteRenderbuffers(1, &_renderBuffer);
     _renderBuffer = 0;
@@ -98,6 +113,13 @@ static VideoDirector *_videoDirector;
     
     [self.context renderbufferStorage:GL_RENDERBUFFER fromDrawable:self.mfLayer];
     glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_RENDERBUFFER, _frameBuffer);
+    
+    GLenum err = glCheckFramebufferStatus(GL_FRAMEBUFFER);
+    if (err != GL_FRAMEBUFFER_COMPLETE) {
+        NSLog(@"frame buffer error");
+    }else{
+        NSLog(@"frame buffer success");
+    }
 }
 
 - (void)setImage:(UIImage *)image{
@@ -130,41 +152,81 @@ static VideoDirector *_videoDirector;
     
     [self.mfProgram useLocationAttribute:"vTextCoor" perReadCount:2 points:textCoors];
     
-    [self generateTexture];
     // 加载纹理
-    [GLSLUtils readTextureForImage:image];
+    [self readTextureForImage:image];
     
 //    glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, _texture, 0);
+    
+    GLenum err = glCheckFramebufferStatus(GL_FRAMEBUFFER);
+    // GL_FRAMEBUFFER_INCOMPLETE_MISSING_ATTACHMENT
+    NSLog(@"frame buffer status %u", err);
+    if (err != GL_FRAMEBUFFER_COMPLETE) {
+        NSLog(@"frame buffer error");
+    }else{
+        NSLog(@"frame buffer success");
+    }
+    
     
     [self.mfProgram clearColorMap:"colorMap"];
     
     // 绘图
     glDrawArrays(GL_TRIANGLE_FAN, 0, 4);
     
-    GLenum err = glCheckFramebufferStatus(GL_FRAMEBUFFER);
-//    GL_FRAMEBUFFER_INCOMPLETE_MISSING_ATTACHMENT
-    NSLog(@"frame buffer status %u", err);
-    if (err != GL_FRAMEBUFFER_COMPLETE) {
-        NSLog(@"frame buffer error");
-    }
-    
     if (self.mfLayer) {
 //        [self.context presentRenderbuffer:GL_RENDERBUFFER];
     }
 }
 
-- (void)generateTexture{
-    glActiveTexture(GL_TEXTURE1);
-    glGenTextures(1, &_texture);
+
+
+// copy的代码
+- (void)readTextureForImage:(UIImage *)image{
+    
+    // 1.将UIimage转成 CGImageRef
+    CGImageRef spriteImage = image.CGImage;
+    if (!spriteImage) {
+        NSLog(@"fail load image %@", image);
+        exit(1);
+    }
+    
+    size_t width = CGImageGetWidth(spriteImage);
+    size_t height = CGImageGetHeight(spriteImage);
+    
+    // 获取图片字节数 宽 x 高 x 4 (RGBA)
+    GLubyte *spriteData = (GLubyte *)calloc(width*height*4, sizeof(GLubyte));
+    
+    // 创建上下文
+    /*
+    参数1：data,指向要渲染的绘制图像的内存地址
+    参数2：width,bitmap的宽度，单位为像素
+    参数3：height,bitmap的高度，单位为像素
+    参数4：bitPerComponent,内存中像素的每个组件的位数，比如32位RGBA，就设置为8
+    参数5：bytesPerRow,bitmap的每一行的内存所占的比特数
+    参数6：colorSpace,bitmap上使用的颜色空间  kCGImageAlphaPremultipliedLast：RGBA
+    */
+    CGContextRef spriteContext = CGBitmapContextCreate(spriteData, width, height, 8, width*4, CGImageGetColorSpace(spriteImage), kCGImageAlphaPremultipliedLast);
+    
+    // 在CGContextRef 上将图片绘制出来
+    CGRect rect = CGRectMake(0, 0, width, height);
+    CGContextDrawImage(spriteContext, rect, spriteImage);
+    CGContextRelease(spriteContext);
+    // 将纹理绑定到默认的纹理ID上
     glBindTexture(GL_TEXTURE_2D, _texture);
     
-//    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-//    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-//    // This is necessary for non-power-of-two textures
-//    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
-//    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+    // 设置纹理属性
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+    
+    float fw = width, fh = height;
+    
+    // 载入纹理数据
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, fw, fh, 0, GL_RGBA, GL_UNSIGNED_BYTE, spriteData);
+    
+    // 释放
+    free(spriteData);
 }
-
 
 - (void)process{
     
@@ -234,16 +296,16 @@ static VideoDirector *_videoDirector;
     GLubyte *rawImagePixels;
     CGDataProviderRef dataProvider = NULL;
     
-    
 //    glBindFramebuffer(GL_FRAMEBUFFER, _frameBuffer);
 //    glViewport(0, 0, (int)_size.width, (int)_size.height);
+    // 没有用
+//    glPixelStorei(GL_PACK_ALIGNMENT, 1);
     
     rawImagePixels = (GLubyte *)malloc(totalBytesForImage);
     glReadPixels(0, 0, (int)_size.width, (int)_size.height, GL_RGBA, GL_UNSIGNED_BYTE, rawImagePixels);
     dataProvider = CGDataProviderCreateWithData(NULL, rawImagePixels, totalBytesForImage,dataProviderReleaseCallback1);
     
     CGColorSpaceRef defaultRGBColorSpace = CGColorSpaceCreateDeviceRGB();
-    
     
     cgImageFromBytes = CGImageCreate((int)_size.width, (int)_size.height, 8, 32, 4 * (int)_size.width, defaultRGBColorSpace, kCGBitmapByteOrderDefault | kCGImageAlphaLast, dataProvider, NULL, NO, kCGRenderingIntentDefault);
     
