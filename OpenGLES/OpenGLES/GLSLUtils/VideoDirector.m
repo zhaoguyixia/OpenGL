@@ -7,7 +7,7 @@
 //
 
 #import "VideoDirector.h"
-#import <OpenGLES/ES2/gl.h>
+#import <OpenGLES/ES3/gl.h>
 #import <GLKit/GLKit.h>
 #import "MFGLProgram.h"
 
@@ -49,9 +49,9 @@ static VideoDirector *_videoDirector;
         
         [self initFrameBuffer];
         
-        [self initRenderBuffer];
+//        [self initRenderBuffer];
         
-//        [self generateTexture];
+        [self generateTexture];
         
         [self initProgram];
         
@@ -66,7 +66,7 @@ static VideoDirector *_videoDirector;
 }
 
 - (void)initContext{
-    self.context = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES2];
+    self.context = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES3];
     if (self.context) {
         [EAGLContext setCurrentContext:self.context];
     }
@@ -84,6 +84,9 @@ static VideoDirector *_videoDirector;
     glActiveTexture(GL_TEXTURE1);
     glGenTextures(1, &_texture);
     glBindTexture(GL_TEXTURE_2D, _texture);
+    
+//    glGenBuffers(1, &_texture);
+//    glBindBuffer(GL_PIXEL_PACK_BUFFER, _texture);
     
     GLenum err = glCheckFramebufferStatus(GL_FRAMEBUFFER);
     if (err != GL_FRAMEBUFFER_COMPLETE) {
@@ -155,7 +158,7 @@ static VideoDirector *_videoDirector;
     // 加载纹理
     [self readTextureForImage:image];
     
-//    glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, _texture, 0);
+    glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, _texture, 0);
     
     GLenum err = glCheckFramebufferStatus(GL_FRAMEBUFFER);
     // GL_FRAMEBUFFER_INCOMPLETE_MISSING_ATTACHMENT
@@ -213,13 +216,16 @@ static VideoDirector *_videoDirector;
     // 将纹理绑定到默认的纹理ID上
     glBindTexture(GL_TEXTURE_2D, _texture);
     
-    // 设置纹理属性
+    // 设置纹理属性x
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
     
     float fw = width, fh = height;
+    
+    // 从cpu 写入到 gpu
+//    glBufferData(GL_PIXEL_PACK_BUFFER, width*height*4, spriteData, GL_DYNAMIC_COPY);
     
     // 载入纹理数据
     glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, fw, fh, 0, GL_RGBA, GL_UNSIGNED_BYTE, spriteData);
