@@ -88,12 +88,25 @@ static VideoDirector *_videoDirector;
 //    glGenBuffers(1, &_texture);
 //    glBindBuffer(GL_PIXEL_PACK_BUFFER, _texture);
     
+    // 载入纹理数据
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, 588, 640, 0, GL_RGBA, GL_UNSIGNED_BYTE, 0);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+    
+    //将纹理绑定到FBO
+    glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, _texture, 0);
+    
     GLenum err = glCheckFramebufferStatus(GL_FRAMEBUFFER);
     if (err != GL_FRAMEBUFFER_COMPLETE) {
         NSLog(@"frame buffer error");
     }else{
         NSLog(@"frame buffer success");
     }
+    
+    glBindFramebuffer(GL_FRAMEBUFFER, 0);
+    glBindTexture(GL_TEXTURE_2D, 0);
 }
 
 - (void)initRenderBuffer{
@@ -112,7 +125,7 @@ static VideoDirector *_videoDirector;
 
 - (void)bindView:(UIView *)view{
     self.mfLayer.frame = view.bounds;
-    [view.layer addSublayer:self.mfLayer];
+//    [view.layer addSublayer:self.mfLayer];
     
     [self.context renderbufferStorage:GL_RENDERBUFFER fromDrawable:self.mfLayer];
     glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_RENDERBUFFER, _frameBuffer);
@@ -158,7 +171,6 @@ static VideoDirector *_videoDirector;
     // 加载纹理
     [self readTextureForImage:image];
     
-    glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, _texture, 0);
     
     GLenum err = glCheckFramebufferStatus(GL_FRAMEBUFFER);
     // GL_FRAMEBUFFER_INCOMPLETE_MISSING_ATTACHMENT
@@ -216,6 +228,7 @@ static VideoDirector *_videoDirector;
     // 将纹理绑定到默认的纹理ID上
     glBindTexture(GL_TEXTURE_2D, _texture);
     
+    
     // 设置纹理属性x
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
@@ -223,9 +236,6 @@ static VideoDirector *_videoDirector;
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
     
     float fw = width, fh = height;
-    
-    // 从cpu 写入到 gpu
-//    glBufferData(GL_PIXEL_PACK_BUFFER, width*height*4, spriteData, GL_DYNAMIC_COPY);
     
     // 载入纹理数据
     glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, fw, fh, 0, GL_RGBA, GL_UNSIGNED_BYTE, spriteData);
@@ -302,8 +312,8 @@ static VideoDirector *_videoDirector;
     GLubyte *rawImagePixels;
     CGDataProviderRef dataProvider = NULL;
     
-//    glBindFramebuffer(GL_FRAMEBUFFER, _frameBuffer);
-//    glViewport(0, 0, (int)_size.width, (int)_size.height);
+    glBindFramebuffer(GL_FRAMEBUFFER, _frameBuffer);
+    glViewport(0, 0, (int)_size.width, (int)_size.height);
     // 没有用
 //    glPixelStorei(GL_PACK_ALIGNMENT, 1);
     

@@ -14,9 +14,9 @@
             filePath = "OpenGLES/composeVideo/ComposeVideoViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "239"
-            endingLineNumber = "239"
-            landmarkName = "-pixelBufferFromCGImage:size:"
+            startingLineNumber = "240"
+            endingLineNumber = "240"
+            landmarkName = "-composeVideo"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -30,8 +30,8 @@
             filePath = "OpenGLES/composeVideo/ComposeVideoViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "224"
-            endingLineNumber = "224"
+            startingLineNumber = "225"
+            endingLineNumber = "225"
             landmarkName = "-composeVideo"
             landmarkType = "7">
          </BreakpointContent>
@@ -46,8 +46,8 @@
             filePath = "OpenGLES/composeVideo/ComposeVideoViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "222"
-            endingLineNumber = "222"
+            startingLineNumber = "223"
+            endingLineNumber = "223"
             landmarkName = "-composeVideo"
             landmarkType = "7">
          </BreakpointContent>
@@ -62,8 +62,8 @@
             filePath = "OpenGLES/composeVideo/ComposeVideoViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "230"
-            endingLineNumber = "230"
+            startingLineNumber = "231"
+            endingLineNumber = "231"
             landmarkName = "-composeVideo"
             landmarkType = "7">
          </BreakpointContent>
@@ -119,22 +119,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "0CBB5590-33DC-4CDE-BECF-53257171D30A"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "OpenGLES/Source/GPUImageOutput.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "227"
-            endingLineNumber = "227"
-            landmarkName = "-addTarget:atTextureLocation:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "CAD1CCB7-E1F5-42A2-BA1C-A2FE0D097D4F"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
@@ -145,38 +129,6 @@
             startingLineNumber = "178"
             endingLineNumber = "178"
             landmarkName = "-setInputFramebufferForTarget:atIndex:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "6BF02E9F-050F-4373-AC7A-A5102F21384F"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "OpenGLES/Source/iOS/GPUImagePicture.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "310"
-            endingLineNumber = "310"
-            landmarkName = "-processImage"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "BDE73A76-7F87-4118-ACFB-80C429E57456"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "OpenGLES/Source/iOS/GPUImagePicture.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "315"
-            endingLineNumber = "315"
-            landmarkName = "-processImageWithCompletionHandler:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -304,22 +256,6 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "195"
             endingLineNumber = "195"
-            landmarkName = "-newCGImageFromCurrentlyProcessedOutput"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "219531F2-4C96-4475-B434-3EC7C72CEF3E"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "OpenGLES/Source/GPUImageFilter.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "188"
-            endingLineNumber = "188"
             landmarkName = "-newCGImageFromCurrentlyProcessedOutput"
             landmarkType = "7">
          </BreakpointContent>
@@ -519,22 +455,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "90A5B5F2-7301-4351-8B50-F3902AF4A55D"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "OpenGLES/Source/GPUImageFramebuffer.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "193"
-            endingLineNumber = "193"
-            landmarkName = "-generateFramebuffer"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "9737F043-BFA1-4347-B3FD-45DB8A99FA19"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
@@ -590,41 +510,9 @@
             filePath = "OpenGLES/GLSLUtils/VideoDirector.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "379"
-            endingLineNumber = "379"
-            landmarkName = "dataProviderUnlockCallback1(info, data, size)"
-            landmarkType = "9">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "FBACBB0C-E1AE-4415-8F11-5077ED36AAC2"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "OpenGLES/Source/iOS/GPUImagePicture.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "263"
-            endingLineNumber = "263"
-            landmarkName = "-initWithCGImage:smoothlyScaleOutput:removePremultiplication:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "64591AAA-A796-4964-87E6-0F2A6C8D80AB"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "OpenGLES/Source/iOS/GPUImagePicture.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "267"
-            endingLineNumber = "267"
-            landmarkName = "-initWithCGImage:smoothlyScaleOutput:removePremultiplication:"
+            startingLineNumber = "389"
+            endingLineNumber = "389"
+            landmarkName = "+supportsFastTextureUpload"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -679,17 +567,81 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "188B187A-B1D1-4163-8CEB-8BF76C37B24A"
+            uuid = "D70B7CE0-65DB-48D1-877A-63F68627B53B"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "OpenGLES/Source/GPUImageFramebuffer.m"
+            filePath = "OpenGLES/Source/iOS/GPUImageContext.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "191"
-            endingLineNumber = "191"
-            landmarkName = "-generateFramebuffer"
+            startingLineNumber = "250"
+            endingLineNumber = "250"
+            landmarkName = "-createContext"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B3D801B7-36C2-470F-AD9A-C81CE39296A0"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "OpenGLES/filter/FilterView/FilterView.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "59"
+            endingLineNumber = "59"
+            landmarkName = "-setupLayer"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8C9660FC-3A59-43D2-A809-7198F9923B83"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "OpenGLES/Source/iOS/GPUImageContext.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "243"
+            endingLineNumber = "243"
+            landmarkName = "-useSharegroup:"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "8C9660FC-3A59-43D2-A809-7198F9923B83 - 5a9f55fa195fa03b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[GPUImageContext useSharegroup:]"
+                  moduleName = "OpenGLES"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/wantexe/Desktop/OpenGL-%E7%B3%BB%E5%88%97/OpenGLES/OpenGLES/Source/iOS/GPUImageContext.m"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "243"
+                  endingLineNumber = "243"
+                  offsetFromSymbolStart = "44">
+               </Location>
+               <Location
+                  uuid = "8C9660FC-3A59-43D2-A809-7198F9923B83 - 5a9f55fa195fa03b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[GPUImageContext useSharegroup:]"
+                  moduleName = "OpenGLES"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/wantexe/Desktop/OpenGL-%E7%B3%BB%E5%88%97/OpenGLES/OpenGLES/Source/iOS/GPUImageContext.m"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "243"
+                  endingLineNumber = "243"
+                  offsetFromSymbolStart = "74">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

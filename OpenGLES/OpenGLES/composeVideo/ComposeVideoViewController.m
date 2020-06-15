@@ -57,11 +57,12 @@
         videoDirector = [VideoDirector new];
 //        [videoDirector bindView:imageView];
         [videoDirector setImage:inputImage];
+        
+        
         UIImage *processImage = [videoDirector getProcessImage];
-        UIImage *processImage1 = [videoDirector getProcessImage];
         NSLog(@"%li", UIImagePNGRepresentation(processImage).length);
-        NSLog(@"%li", UIImagePNGRepresentation(processImage1).length);
         imageView.image = processImage;
+        
     }else{
         GPUImageSketchFilter *passthroughFilter = [[GPUImageSketchFilter alloc] init];
 
