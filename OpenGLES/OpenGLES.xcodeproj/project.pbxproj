@@ -62,6 +62,7 @@
 		C4C64EFF24755AC5002851B7 /* gray.vsh in Resources */ = {isa = PBXBuildFile; fileRef = C4C64EFE24755AC5002851B7 /* gray.vsh */; };
 		C4C64F0124755ACF002851B7 /* gray.fsh in Resources */ = {isa = PBXBuildFile; fileRef = C4C64F0024755ACF002851B7 /* gray.fsh */; };
 		C4D85628247BDFFA00EE97C2 /* ComposeVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4D85627247BDFFA00EE97C2 /* ComposeVideoViewController.m */; };
+		C4FC8135249894890006339E /* save in Resources */ = {isa = PBXBuildFile; fileRef = C4FC8134249894890006339E /* save */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -179,6 +180,7 @@
 		C4C64F0024755ACF002851B7 /* gray.fsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = gray.fsh; sourceTree = "<group>"; };
 		C4D85626247BDFFA00EE97C2 /* ComposeVideoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ComposeVideoViewController.h; sourceTree = "<group>"; };
 		C4D85627247BDFFA00EE97C2 /* ComposeVideoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ComposeVideoViewController.m; sourceTree = "<group>"; };
+		C4FC8134249894890006339E /* save */ = {isa = PBXFileReference; lastKnownFileType = text; path = save; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -284,6 +286,7 @@
 				C483149A2480AACA004A43E2 /* MFGLProgram.m */,
 				C483149C2480F429004A43E2 /* VideoDirector.h */,
 				C483149D2480F429004A43E2 /* VideoDirector.m */,
+				C4FC8134249894890006339E /* save */,
 			);
 			path = GLSLUtils;
 			sourceTree = "<group>";
@@ -532,6 +535,7 @@
 				C43324ED24820481008F5F55 /* Info.plist in Resources */,
 				C4131FEB2473802B00139442 /* soul.fsh in Resources */,
 				4E88AE962471736500CFEF11 /* mosaic.fsh in Resources */,
+				C4FC8135249894890006339E /* save in Resources */,
 				C43922D22472849500BDE8DC /* normal.fsh in Resources */,
 				C499E8B32462D6B90005F2D3 /* Assets.xcassets in Resources */,
 				C4C64EFF24755AC5002851B7 /* gray.vsh in Resources */,

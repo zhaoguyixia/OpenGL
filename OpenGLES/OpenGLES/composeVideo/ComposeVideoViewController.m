@@ -19,7 +19,7 @@
     NSMutableArray*imageArray;  //经过压缩的图片
     VideoDirector *videoDirector;
     UIImageView *imageView;
-    UIView *showView;
+    UIImageView *showView;
 }
 
 //视频地址
@@ -37,11 +37,11 @@
     
     float width = self.view.frame.size.width;
     
-    imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 200, width, width)];
+    imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 100, width, width)];
     [self.view addSubview:imageView];
     
-//    showView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 200, width, width)];
-//    [self.view addSubview:showView];
+    showView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 400, 100, 100)];
+    [self.view addSubview:showView];
     
 //    [self ww_setupInit];
     [self setupUI];
@@ -56,12 +56,13 @@
     if (ii == 1) {
         videoDirector = [VideoDirector new];
 //        [videoDirector bindView:imageView];
+        [videoDirector setTextureSize:inputImage.size];
         [videoDirector setImage:inputImage];
-        
+        [videoDirector render];
         
         UIImage *processImage = [videoDirector getProcessImage];
         NSLog(@"%li", UIImagePNGRepresentation(processImage).length);
-        imageView.image = processImage;
+        showView.image = processImage;
         
     }else{
         GPUImageSketchFilter *passthroughFilter = [[GPUImageSketchFilter alloc] init];

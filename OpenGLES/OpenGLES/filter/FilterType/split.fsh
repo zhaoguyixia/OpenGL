@@ -19,4 +19,5 @@ void main() {
         coor.y = coor.y * 2.0 - 1.0;
     }
     gl_FragColor = texture2D(colorMap, coor);
+    gl_FragData
 }

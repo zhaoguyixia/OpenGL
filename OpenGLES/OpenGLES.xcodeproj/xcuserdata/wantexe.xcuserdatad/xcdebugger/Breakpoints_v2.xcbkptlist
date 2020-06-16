@@ -16,8 +16,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "240"
             endingLineNumber = "240"
-            landmarkName = "-composeVideo"
-            landmarkType = "7">
+            landmarkName = "ComposeVideoViewController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -497,22 +497,6 @@
             startingLineNumber = "194"
             endingLineNumber = "194"
             landmarkName = "-generateFramebuffer"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "CDB23535-79FF-435A-BE76-9F64B860ED54"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "OpenGLES/GLSLUtils/VideoDirector.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "389"
-            endingLineNumber = "389"
-            landmarkName = "+supportsFastTextureUpload"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

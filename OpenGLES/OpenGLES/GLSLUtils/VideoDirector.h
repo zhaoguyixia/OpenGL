@@ -15,11 +15,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (VideoDirector *)videoDirector;
 
+- (void)setTextureSize:(CGSize)size;
+
 /// 设置图片
 /// @param image 图片数据
 - (void)setImage:(UIImage *)image;
 
-//- (void)process;
+- (void)render;
 
 /// 取处理后的图片
 - (UIImage *)getProcessImage;
