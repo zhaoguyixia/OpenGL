@@ -135,6 +135,7 @@ static VideoDirector *_videoDirector;
     }
     // 不加，则glReadPixels读取不到数据
     glBindFramebuffer(GL_FRAMEBUFFER, 0);
+    glBindTexture(GL_TEXTURE_2D, 0);
 }
 
 - (void)setImage:(UIImage *)image{
@@ -176,7 +177,7 @@ static VideoDirector *_videoDirector;
     CGContextDrawImage(spriteContext, rect, spriteImage);
     CGContextRelease(spriteContext);
     // 将纹理绑定到指定的纹理ID上
-    glBindTexture(GL_TEXTURE_2D, _texture);
+    glBindTexture(GL_TEXTURE_2D, 0);
     
     // 设置纹理属性x
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
@@ -188,6 +189,13 @@ static VideoDirector *_videoDirector;
     
     // 载入纹理数据
     glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, fw, fh, 0, GL_RGBA, GL_UNSIGNED_BYTE, spriteData);
+    
+    GLenum err = glCheckFramebufferStatus(GL_FRAMEBUFFER);
+    if (err != GL_FRAMEBUFFER_COMPLETE) {
+        NSLog(@"frame buffer error %u", err);
+    }else{
+        NSLog(@"frame buffer success");
+    }
     
     // 释放
     free(spriteData);
@@ -226,7 +234,7 @@ static VideoDirector *_videoDirector;
     // 绘图
     glDrawArrays(GL_TRIANGLE_FAN, 0, 4);
     
-    glBindTexture(GL_TEXTURE_2D, 0);
+//    glBindTexture(GL_TEXTURE_2D, 0);
     
     if (self.mfLayer) {
          [self.context presentRenderbuffer:GL_RENDERBUFFER];
@@ -242,11 +250,11 @@ static VideoDirector *_videoDirector;
     GLubyte *rawImagePixels;
     CGDataProviderRef dataProvider = NULL;
     
-    glBindFramebuffer(GL_FRAMEBUFFER, _frameBuffer);
-    glBindTexture(GL_TEXTURE_2D, _texture);
+//    glBindFramebuffer(GL_FRAMEBUFFER, _frameBuffer);
+//    glBindTexture(GL_TEXTURE_2D, _texture);
     
     rawImagePixels = (GLubyte *)malloc(totalBytesForImage);
-    glReadBuffer(GL_FRONT);
+//    glReadBuffer(GL_FRONT);
     
     glReadPixels(0, 0, (int)_size.width, (int)_size.height, GL_RGBA, GL_UNSIGNED_BYTE, rawImagePixels);
     dataProvider = CGDataProviderCreateWithData(NULL, rawImagePixels, totalBytesForImage, NULL);
