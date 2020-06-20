@@ -22,8 +22,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)linkUseProgram;
 
-/// 清空纹理采样器
-- (void)clearColorMap:(GLchar *)colorMapKey;
+- (void)useDefaultSample:(GLchar *)colorMapKey;
+
+- (void)letSample:(GLchar *)colorMapKey useTexture:(GLint)textureId;
 
 /**
  * @abstract 给着色器里面的attribute属性赋值，一般是顶点数据和纹理坐标

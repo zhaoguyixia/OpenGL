@@ -141,7 +141,7 @@
     // 加载纹理
     [GLSLUtils readTexture:@"girl"];
     
-    [self.mfProgram clearColorMap:"colorMap"];
+    [self.mfProgram useDefaultSample:"colorMap"];
     
     // 绘图
     glDrawArrays(GL_TRIANGLE_FAN, 0, 4);

@@ -40,8 +40,8 @@
     imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 100, width, width)];
     [self.view addSubview:imageView];
     
-    showView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 400, 100, 100)];
-    [self.view addSubview:showView];
+//    showView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 400, 100, 100)];
+//    [self.view addSubview:showView];
     
 //    [self ww_setupInit];
     [self setupUI];
@@ -62,7 +62,7 @@
         
         UIImage *processImage = [videoDirector getProcessImage];
         NSLog(@"%li", UIImagePNGRepresentation(processImage).length);
-        showView.image = processImage;
+        imageView.image = processImage;
         
     }else{
         GPUImageSketchFilter *passthroughFilter = [[GPUImageSketchFilter alloc] init];

@@ -114,6 +114,7 @@ static VideoDirector *_videoDirector;
 }
 - (void)generateTexture{
     
+    glActiveTexture(GL_TEXTURE1);
     glGenTextures(1, &_texture);
     glBindTexture(GL_TEXTURE_2D, _texture);
     
@@ -123,7 +124,7 @@ static VideoDirector *_videoDirector;
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
-    
+
     //将纹理绑定到FBO
     glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, _texture, 0);
     
@@ -135,7 +136,6 @@ static VideoDirector *_videoDirector;
     }
     // 不加，则glReadPixels读取不到数据
     glBindFramebuffer(GL_FRAMEBUFFER, 0);
-    glBindTexture(GL_TEXTURE_2D, 0);
 }
 
 - (void)setImage:(UIImage *)image{
@@ -177,7 +177,7 @@ static VideoDirector *_videoDirector;
     CGContextDrawImage(spriteContext, rect, spriteImage);
     CGContextRelease(spriteContext);
     // 将纹理绑定到指定的纹理ID上
-    glBindTexture(GL_TEXTURE_2D, 0);
+    glBindTexture(GL_TEXTURE_2D, _texture);
     
     // 设置纹理属性x
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
@@ -225,16 +225,21 @@ static VideoDirector *_videoDirector;
         0, 1,
     };
     
+    // 激活一个纹理，绑定
+    glBindFramebuffer(GL_FRAMEBUFFER, _frameBuffer);
+    glBindTexture(GL_TEXTURE_2D, _texture);
+    
+    [self.mfProgram letSample:"colorMap" useTexture:1];
+    
     [self.mfProgram useLocationAttribute:"position" perReadCount:3 points:points];
     
     [self.mfProgram useLocationAttribute:"vTextCoor" perReadCount:2 points:textCoors];
     
-    [self.mfProgram clearColorMap:"colorMap"];
     
     // 绘图
     glDrawArrays(GL_TRIANGLE_FAN, 0, 4);
     
-//    glBindTexture(GL_TEXTURE_2D, 0);
+    [self.mfProgram useDefaultSample:"colorMap"];
     
     if (self.mfLayer) {
          [self.context presentRenderbuffer:GL_RENDERBUFFER];

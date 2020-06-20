@@ -41,8 +41,12 @@
     glUseProgram(self.program);
 }
 
-- (void)clearColorMap:(GLchar *)colorMapKey{
+- (void)useDefaultSample:(GLchar *)colorMapKey{
     glUniform1i(glGetUniformLocation(self.program, colorMapKey), 0);
+}
+
+- (void)letSample:(GLchar *)colorMapKey useTexture:(GLint)textureId{
+    glUniform1i(glGetUniformLocation(self.program, colorMapKey), textureId);
 }
 
 - (void)useLocationAttribute:(GLchar *)attributeKey
