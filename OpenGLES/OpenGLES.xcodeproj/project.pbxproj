@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4E16BE58249F09D700C96C75 /* OutputFilterImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E16BE57249F09D700C96C75 /* OutputFilterImageViewController.m */; };
+		4E16BE5E249F0A4C00C96C75 /* OutputFilterImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E16BE5D249F0A4C00C96C75 /* OutputFilterImageManager.m */; };
 		4E23409B24679F7D00CA5681 /* FilterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E23409A24679F7D00CA5681 /* FilterViewController.m */; };
 		4E23409E24679F9600CA5681 /* FilterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E23409D24679F9600CA5681 /* FilterView.m */; };
 		4E2340A02467AE2400CA5681 /* split.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 4E23409F2467AE2400CA5681 /* split.vsh */; };
@@ -83,6 +85,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4E16BE56249F09D700C96C75 /* OutputFilterImageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OutputFilterImageViewController.h; sourceTree = "<group>"; };
+		4E16BE57249F09D700C96C75 /* OutputFilterImageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OutputFilterImageViewController.m; sourceTree = "<group>"; };
+		4E16BE5C249F0A4C00C96C75 /* OutputFilterImageManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OutputFilterImageManager.h; sourceTree = "<group>"; };
+		4E16BE5D249F0A4C00C96C75 /* OutputFilterImageManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OutputFilterImageManager.m; sourceTree = "<group>"; };
 		4E23409924679F7D00CA5681 /* FilterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FilterViewController.h; sourceTree = "<group>"; };
 		4E23409A24679F7D00CA5681 /* FilterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FilterViewController.m; sourceTree = "<group>"; };
 		4E23409C24679F9600CA5681 /* FilterView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FilterView.h; sourceTree = "<group>"; };
@@ -213,6 +219,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4E16BE55249F09B100C96C75 /* OutputFilterImage */ = {
+			isa = PBXGroup;
+			children = (
+				4E16BE56249F09D700C96C75 /* OutputFilterImageViewController.h */,
+				4E16BE57249F09D700C96C75 /* OutputFilterImageViewController.m */,
+				4E16BE5C249F0A4C00C96C75 /* OutputFilterImageManager.h */,
+				4E16BE5D249F0A4C00C96C75 /* OutputFilterImageManager.m */,
+			);
+			path = OutputFilterImage;
+			sourceTree = "<group>";
+		};
 		4E23409624679F6200CA5681 /* filter */ = {
 			isa = PBXGroup;
 			children = (
@@ -389,11 +406,12 @@
 				C499E8A72462D6B50005F2D3 /* AppDelegate.m */,
 				C499E8AC2462D6B50005F2D3 /* ViewController.h */,
 				C499E8AD2462D6B50005F2D3 /* ViewController.m */,
-				C433232E24820480008F5F55 /* Source */,
-				C4D85625247BDE6B00EE97C2 /* composeVideo */,
-				4E23409624679F6200CA5681 /* filter */,
 				4E3F2DCE2463065F0020CE2E /* GLSLUtils */,
+				C433232E24820480008F5F55 /* Source */,
 				4E3F2DC02462FECB0020CE2E /* texture */,
+				4E23409624679F6200CA5681 /* filter */,
+				4E16BE55249F09B100C96C75 /* OutputFilterImage */,
+				C4D85625247BDE6B00EE97C2 /* composeVideo */,
 				C499E8AF2462D6B50005F2D3 /* Main.storyboard */,
 				C499E8B22462D6B90005F2D3 /* Assets.xcassets */,
 				C499E8B72462D6B90005F2D3 /* Info.plist */,
@@ -573,6 +591,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4E2340A52467B45F00CA5681 /* FilterTitleCell.m in Sources */,
+				4E16BE58249F09D700C96C75 /* OutputFilterImageViewController.m in Sources */,
 				C43324DC24820481008F5F55 /* GPUImageOutput.m in Sources */,
 				C43324E824820481008F5F55 /* GPUImageRGBFilter.m in Sources */,
 				C43324E424820481008F5F55 /* GPUImageFramebuffer.m in Sources */,
@@ -601,6 +620,7 @@
 				C43324B224820481008F5F55 /* GPUImageSketchFilter.m in Sources */,
 				C43324EE24820481008F5F55 /* GPUImagePicture.m in Sources */,
 				4E3F2DC32462FEFB0020CE2E /* TextureViewController.m in Sources */,
+				4E16BE5E249F0A4C00C96C75 /* OutputFilterImageManager.m in Sources */,
 				C43324D724820481008F5F55 /* GLProgram.m in Sources */,
 				C499E8B92462D6B90005F2D3 /* main.m in Sources */,
 				C433249C24820481008F5F55 /* GPUImageTwoPassFilter.m in Sources */,

@@ -1,55 +1,32 @@
 //
-//  VideoDirector.m
+//  OutputFilterImageManager.m
 //  OpenGLES
 //
-//  Created by wantexe on 2020/5/29.
+//  Created by 李明锋 on 2020/6/21.
 //  Copyright © 2020 zhaoguyixia. All rights reserved.
 //
 
-#import "VideoDirector.h"
-#import <OpenGLES/ES3/gl.h>
-#import <GLKit/GLKit.h>
+#import "OutputFilterImageManager.h"
 #import "MFGLProgram.h"
 
-static VideoDirector *_videoDirector;
-
-@interface VideoDirector ()
+@interface OutputFilterImageManager ()
 {
-    CVPixelBufferRef renderTarget;
     CGSize _size;
-    int readLockCount;
-    CVOpenGLESTextureCacheRef _coreVideoTextureCache;
-    CVOpenGLESTextureRef renderTexture;
 }
 @property (nonatomic, strong) EAGLContext *context;
 @property (nonatomic, assign) GLuint frameBuffer;
 @property (nonatomic, assign) GLuint texture;
 @property (nonatomic, strong) MFGLProgram *mfProgram;
-@property (nonatomic, strong) CAEAGLLayer *mfLayer;
-@property (nonatomic, assign) GLuint renderBuffer;
 @end
 
-@implementation VideoDirector
-
-+ (VideoDirector *)videoDirector{
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        _videoDirector = [[VideoDirector alloc] init];
-    });
-    return _videoDirector;
-}
+@implementation OutputFilterImageManager
 
 - (instancetype)init{
     if (self = [super init]) {
-        readLockCount = 0;
-        
-//        [self initLayer];
 
         [self initContext];
         
         [self initFrameBuffer];
-        
-//        [self initRenderBuffer];
         
         [self initProgram];
         
@@ -57,11 +34,6 @@ static VideoDirector *_videoDirector;
     return self;
 }
 
-- (void)initLayer{
-    self.mfLayer = [CAEAGLLayer layer];
-    
-    self.mfLayer.drawableProperties = [NSDictionary dictionaryWithObjectsAndKeys:@false, kEAGLDrawablePropertyRetainedBacking, kEAGLDrawablePropertyColorFormat, kEAGLColorFormatRGBA8, nil];
-}
 
 - (void)initContext{
     self.context = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES3];
@@ -78,13 +50,6 @@ static VideoDirector *_videoDirector;
     
 }
 
-- (void)initRenderBuffer{
-    glDeleteRenderbuffers(1, &_renderBuffer);
-    _renderBuffer = 0;
-    glGenRenderbuffers(1, &_renderBuffer);
-    glBindRenderbuffer(GL_RENDERBUFFER, _renderBuffer);
-}
-
 - (void)initProgram{
     NSString *vFile = [[NSBundle mainBundle] pathForResource:@"gray" ofType:@"vsh"];
     NSString *fFile = [[NSBundle mainBundle] pathForResource:@"gray" ofType:@"fsh"];
@@ -92,24 +57,9 @@ static VideoDirector *_videoDirector;
     [self.mfProgram linkUseProgram];
 }
 
-- (void)bindView:(UIView *)view{
-    self.mfLayer.frame = view.bounds;
-    [view.layer addSublayer:self.mfLayer];
-    
-    [self.context renderbufferStorage:GL_RENDERBUFFER fromDrawable:self.mfLayer];
-    glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_RENDERBUFFER, _frameBuffer);
-    
-    GLenum err = glCheckFramebufferStatus(GL_FRAMEBUFFER);
-    if (err != GL_FRAMEBUFFER_COMPLETE) {
-        NSLog(@"frame buffer error");
-    }else{
-        NSLog(@"frame buffer success");
-    }
-}
 
 - (void)setTextureSize:(CGSize)size{
     _size = CGSizeMake(size.width*2, size.height*2);
-//    _size = size;
     [self generateTexture];
 }
 - (void)generateTexture{
@@ -239,9 +189,6 @@ static VideoDirector *_videoDirector;
     // 绘图
     glDrawArrays(GL_TRIANGLE_FAN, 0, 4);
     
-    if (self.mfLayer) {
-         [self.context presentRenderbuffer:GL_RENDERBUFFER];
-    }
 }
 
 - (UIImage *)getProcessImage{

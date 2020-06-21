@@ -23,9 +23,11 @@
     self.title = @"OpenGL ES";
     self.dataSource = @[@"TextureViewController",
                         @"FilterViewController",
+                        @"OutputFilterImageViewController",
                         @"ComposeVideoViewController"];
     self.titleArray = @[@"加载纹理",
                         @"各种滤镜",
+                        @"给图片加滤镜",
                         @"视频合成"];
     [self createUI];
 }

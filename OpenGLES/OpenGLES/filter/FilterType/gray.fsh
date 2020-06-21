@@ -13,6 +13,7 @@ void main() {
      5.仅取绿色：Gray=G；
      */
     vec2 coor = vec2(varyTextCoord.x, 1.0-varyTextCoord.y);
+//    coor = varyTextCoord;
     vec4 source = texture2D(colorMap, coor);
     
     float r = (source.r + source.g + source.b)/3.0;
