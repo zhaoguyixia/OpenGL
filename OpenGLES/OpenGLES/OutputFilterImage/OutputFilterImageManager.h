@@ -2,7 +2,7 @@
 //  OutputFilterImageManager.h
 //  OpenGLES
 //
-//  Created by 李明锋 on 2020/6/21.
+//  Created by zhaoguyixia on 2020/6/21.
 //  Copyright © 2020 zhaoguyixia. All rights reserved.
 //
 

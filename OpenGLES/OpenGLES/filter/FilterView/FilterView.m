@@ -2,7 +2,7 @@
 //  FilterView.m
 //  OpenGLES
 //
-//  Created by 李明锋 on 2020/5/10.
+//  Created by zhaoguyixia on 2020/5/10.
 //  Copyright © 2020 zhaoguyixia. All rights reserved.
 //
 

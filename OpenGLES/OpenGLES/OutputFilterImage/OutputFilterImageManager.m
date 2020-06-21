@@ -2,7 +2,7 @@
 //  OutputFilterImageManager.m
 //  OpenGLES
 //
-//  Created by 李明锋 on 2020/6/21.
+//  Created by zhaoguyixia on 2020/6/21.
 //  Copyright © 2020 zhaoguyixia. All rights reserved.
 //
 
@@ -47,7 +47,6 @@
     _frameBuffer = 0;
     glGenFramebuffers(1, &_frameBuffer);
     glBindFramebuffer(GL_FRAMEBUFFER, _frameBuffer);
-    
 }
 
 - (void)initProgram{
@@ -129,7 +128,7 @@
     // 将纹理绑定到指定的纹理ID上
     glBindTexture(GL_TEXTURE_2D, _texture);
     
-    // 设置纹理属性x
+    // 设置纹理属性
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);

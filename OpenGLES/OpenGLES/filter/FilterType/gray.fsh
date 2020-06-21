@@ -24,6 +24,9 @@ void main() {
     
     vec4 color = vec4(r, r, r, source.a);
     
-    gl_FragColor = color;
+//    gl_FragColor = color;
+    // gl_FragData[0] 与 gl_FragColor 一样 对应 GL_COLOR_ATTACHMENT0
+    // 1-15 对应 GL_COLOR_ATTACHMENT1-15，不过针对的是绑定渲染缓冲区时的attachment
+    gl_FragData[0] = color;
     
 }

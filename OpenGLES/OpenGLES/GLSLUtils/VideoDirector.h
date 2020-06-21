@@ -2,7 +2,7 @@
 //  VideoDirector.h
 //  OpenGLES
 //
-//  Created by wantexe on 2020/5/29.
+//  Created by zhaoguyixia on 2020/5/29.
 //  Copyright © 2020 zhaoguyixia. All rights reserved.
 //
 

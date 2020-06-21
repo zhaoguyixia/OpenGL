@@ -2,7 +2,7 @@
 //  ComposeVideoViewController.h
 //  OpenGLES
 //
-//  Created by wantexe on 2020/5/25.
+//  Created by zhaoguyixia on 2020/5/25.
 //  Copyright © 2020 zhaoguyixia. All rights reserved.
 //
 

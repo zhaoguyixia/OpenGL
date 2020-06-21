@@ -2,13 +2,13 @@
 //  GLSLUtils.h
 //  OpenGLES集合
 //
-//  Created by 李明锋 on 2020/4/4.
+//  Created by zhaoguyixia on 2020/4/4.
 //  Copyright © 2020 limingfeng. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
-#import <OpenGLES/ES2/gl.h>
-#import <OpenGLES/ES2/glext.h>
+#import <OpenGLES/ES3/gl.h>
+#import <OpenGLES/ES3/glext.h>
 #import <GLKit/GLKit.h>
 
 NS_ASSUME_NONNULL_BEGIN

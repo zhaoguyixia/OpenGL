@@ -2,7 +2,7 @@
 //  GLSLUtils.m
 //  OpenGLES集合
 //
-//  Created by 李明锋 on 2020/4/4.
+//  Created by zhaoguyixia on 2020/4/4.
 //  Copyright © 2020 limingfeng. All rights reserved.
 //
 
